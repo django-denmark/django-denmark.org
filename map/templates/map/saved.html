@@ -1,0 +1,26 @@
+{% extends "map/base.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="two-half column" style="margin-top: 15%">
+    <h4>Django Denmark map</h4>
+     
+     <p>
+      <a href="{% url 'map:create' %}"></a>
+     </p>
+     
+     <div id="mapid" style="height: 600px; margin-bottom: 20px;"></div>
+     
+     <script>
+     var mymap = L.map('mapid').setView([56.242, 11.634], 7);
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 7,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoiYmVuamFvbWluZyIsImEiOiJjamV0NTYyamcxODFjMnhvMmMzdjJsbDY5In0.rTs5SxGduCjG9uNexNfmFQ'
+}).addTo(mymap);
+     </script>
+    
+  </div>
+</div>
+{% endblock %}

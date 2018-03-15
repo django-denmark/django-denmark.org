@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 from membership import urls as membership_urls
+from map import urls as map_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('map/', include(map_urls)),
     path('', include(membership_urls)),
 ]
