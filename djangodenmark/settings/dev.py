@@ -10,3 +10,5 @@ DEBUG = True
 SECRET_KEY = '0g^9kov4soj^q^7_o^+orwl&%w9w%kvw@k*yczi1^+c%my5)2u'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+DJANGO_DENMARK_INVITE_CODES = ["test"]

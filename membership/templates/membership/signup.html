@@ -1,0 +1,18 @@
+{% extends "membership/base.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="one-half column" style="margin-top: 25%">
+    <h4>Create your profile...</h4>
+    
+    <form method="POST">
+      {% csrf_token %}
+      {{ form }}
+      
+      <button type="submit">Continue to login</button>
+    
+    </form>
+    
+  </div>
+</div>
+{% endblock %}
