@@ -39,8 +39,14 @@
     
     {% if user.is_authenticated %}
     
-    You are now logged in as {{ user }}
+      You are now logged in as {{ user }}
     
+    {% else %}
+      <p>
+        <a href="{% url 'membership:login' %}">Log in</a>
+        //
+        <a href="{% url 'membership:invite' %}">Sign up</a>
+      </p>
     {% endif %}
     
   </div>
