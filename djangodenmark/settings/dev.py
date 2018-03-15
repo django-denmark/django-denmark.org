@@ -8,3 +8,5 @@ DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '0g^9kov4soj^q^7_o^+orwl&%w9w%kvw@k*yczi1^+c%my5)2u'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
