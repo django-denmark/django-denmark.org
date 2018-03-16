@@ -12,7 +12,7 @@ class MapEntryForm(forms.ModelForm):
                 attrs={
                     'map_width': 800,
                     'map_height': 500,
-                    'default_zoom': 10,
+                    'default_zoom': 7,
                     'default_lat': 56.242,
                     'default_lon': 11.634,
                 },

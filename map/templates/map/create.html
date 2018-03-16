@@ -7,9 +7,9 @@
     
     <form method="POST">
       {% csrf_token %}
-      {{ form }}
+      {{ form.as_p }}
       
-      <p>
+      <p style="margin-top: 40px">
         <button type="submit">Continue \o/</button>
       </p>
     

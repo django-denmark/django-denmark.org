@@ -13,6 +13,7 @@ class MapView(ListView):
     
     model = models.MapEntry
     template_name = "map/map.html"
+    context_object_name = "map"
     
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
