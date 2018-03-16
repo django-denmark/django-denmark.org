@@ -17,7 +17,7 @@ class MapEntry(models.Model):
     )
     
     def __str__(self):
-        return self.name or self.owner
+        return self.name or str(self.owner)
 
     class Meta:
         unique_together = ('owner', 'name')
