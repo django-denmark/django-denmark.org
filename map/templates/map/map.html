@@ -25,7 +25,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(mymap);
 
       {% for entry in map %}
-      var marker = L.marker([{{ entry.location.x }}, {{ entry.location.y }}]).addTo(mymap);
+      var marker = L.marker([{{ entry.location.y }}, {{ entry.location.x }}]).addTo(mymap);
+      marker.bindPopup("{{ entry|escapejs }}")
       {% endfor %}
 
      </script>
