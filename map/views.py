@@ -41,5 +41,5 @@ class MapCreateView(CreateView):
     def form_valid(self, form):
         instance = form.save(commit=False)
         instance.owner = self.request.user
-        
+        instance.save()
         return redirect("map:saved")
