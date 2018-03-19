@@ -24,8 +24,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'geoposition',
     'membership',
     'map',
+    'mapwidgets'
 ]
 
 MIDDLEWARE = [
@@ -115,3 +117,18 @@ STATIC_URL = '/static/'
 DJANGO_DENMARK_INVITE_CODES = []
 
 LOGIN_REDIRECT_URL = "membership:start"
+
+
+
+# Map Widget Settings
+
+MAP_WIDGETS = {
+    "GooglePointFieldWidget": (
+        ("zoom", 15),
+        ("mapCenterLocationName", "copenhagen"),
+        ("GooglePlaceAutocompleteOptions", {'componentRestrictions': {'country': 'dk'}}),
+        ("markerFitZoom", 12),
+        ("size", "700x480"),
+    ),
+    "GOOGLE_MAP_API_KEY": "AIzaSyDvnp9td0JuMKilCk2MU-XyvcCnqSzpy0A"
+}
