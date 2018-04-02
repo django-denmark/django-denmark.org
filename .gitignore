@@ -107,3 +107,5 @@ db.sqlite3
 .mypy_cache/
 #visual studio settings file
 .vscode
+#Macos localisation
+.DS_Store

@@ -24,10 +24,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
-    'geoposition',
     'membership',
     'map',
-    'mapwidgets'
+    'mapwidgets',
+    'meetup'
 ]
 
 MIDDLEWARE = [
