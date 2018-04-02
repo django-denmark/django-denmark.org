@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'membership',
     'map',
+    'meetup'
 ]
 
 MIDDLEWARE = [

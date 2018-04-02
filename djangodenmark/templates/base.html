@@ -17,10 +17,14 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="{% static "css/normalize.css" %}">
   <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
+  <link rel="stylesheet" href="{% static "css/meetup.css" %}">
 
   <link rel="stylesheet" href="{% static "openlayers/ol.css" %}">
   <script src="{% static "openlayers/ol.js" %}"></script>
   <script src="{% static "gis/js/OLMapWidget.js" %}"></script>
+  <!-- FONT AWESOME ICONS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="{% static "font-awesome/font-awesome.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -59,8 +63,11 @@
         <a href="{% url 'membership:invite' %}">Sign up</a>
       </p>
     {% endif %}
+
+   
     
   </div>
+  
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
