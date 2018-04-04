@@ -4,20 +4,26 @@ from pyproj import Proj, transform
 from django.utils.functional import cached_property
 
 
+
+
+
 class MapEntry(models.Model):
     
-    location = models.PointField()
+    location = models.PointField(
+        verbose_name=_("Location"),
+    )
     
     owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     
     name = models.CharField(
-        verbose_name=_("Name of place"),
+        verbose_name=_("Name of Company"),
         help_text=_("Leave blank if it's yourself"),
         null=True,
         blank=True,
         max_length=256,
     )
     
+        
     def __str__(self):
         return self.name or str(self.owner)
 

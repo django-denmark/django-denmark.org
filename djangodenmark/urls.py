@@ -18,9 +18,11 @@ from django.urls import path, include
 
 from membership import urls as membership_urls
 from map import urls as map_urls
+from meetup import urls as meetup_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('map/', include(map_urls)),
+    path('meetup/', include(meetup_urls)),
     path('', include(membership_urls)),
 ]

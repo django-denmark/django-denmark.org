@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'membership',
     'map',
+    'meetup'
 ]
 
 MIDDLEWARE = [
@@ -115,3 +116,5 @@ STATIC_URL = '/static/'
 DJANGO_DENMARK_INVITE_CODES = []
 
 LOGIN_REDIRECT_URL = "membership:start"
+
+

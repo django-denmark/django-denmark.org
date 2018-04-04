@@ -1,0 +1,19 @@
+.meetup-item{
+    background-color: #E7F5F2;
+    margin-top: 5px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.meetup-title{
+    font-size: 4vh;
+}
+.meetup-date{
+    float: right;
+    position: relative;
+    font-size: 3vh;
+    top:-10px;
+}
+.meetup-time{
+    left: 50px;
+    position: relative;
+}

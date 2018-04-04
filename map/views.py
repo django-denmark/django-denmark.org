@@ -5,6 +5,8 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 
+
+
 from . import forms
 from . import models
 
@@ -14,6 +16,8 @@ class MapView(ListView):
     model = models.MapEntry
     template_name = "map/map.html"
     context_object_name = "map"
+    
+
     
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):

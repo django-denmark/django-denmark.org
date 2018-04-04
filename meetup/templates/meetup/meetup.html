@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="two-half column" style="margin-top: 15%;margin-bottom: 15%;">
+<h1>Our upcoming meetups</h1>
+{% for meetup in object_list %}
+<div class="meetup-item">
+   <span class="meetup-date"><i class="fas fa-calendar-alt"></i>  {{ meetup.date|date }}</span> 
+   <span class="meetup-title">{{ meetup.title }}</span>
+   <div class="meetup-time"> <i class="far fa-clock"></i>  Starts at: {{meetup.start_time}}-Finishes at: {{meetup.end_time}}<br></div>
+   <div class="meetup-time"><i class="fas fa-map-marker"></i>  Venue: {{meetup.venue}}</div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}
