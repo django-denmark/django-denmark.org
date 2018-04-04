@@ -10,7 +10,7 @@ from django.utils.functional import cached_property
 class MapEntry(models.Model):
     
     location = models.PointField(
-        verbose_name=_("Location(click on the marker to select your location on map)"),
+        verbose_name=_("Location"),
     )
     
     owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
