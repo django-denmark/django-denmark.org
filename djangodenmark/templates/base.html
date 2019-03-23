@@ -17,10 +17,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="{% static "css/normalize.css" %}">
   <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
-
-  <link rel="stylesheet" href="{% static "openlayers/ol.css" %}">
-  <script src="{% static "openlayers/ol.js" %}"></script>
-  <script src="{% static "gis/js/OLMapWidget.js" %}"></script>
+  <link rel="stylesheet" href="{% static "css/custom.css" %}">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -41,6 +38,12 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
+
+<div class="row">
+  <div class="one-half column" style="margin-top: 15%; margin-bottom: 50px;">
+    <img src="{% static "img/logo.png" %}" style="width: 100%;">
+  </div>
+</div>
     
     {% block content %}
     {% endblock %}
@@ -49,7 +52,7 @@
     {% if user.is_authenticated %}
     
     <p>
-      You are now logged in as {{ user }} // <a href="{% url 'map:map' %}">Django Denmark Map</a>
+      You are now logged in as {{ user }}
     </p>
     
     {% else %}
