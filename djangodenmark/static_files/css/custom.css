@@ -3,6 +3,11 @@ li
   margin-bottom: 0;
 }
 
+ul
+{
+    margin-left: 15px;
+}
+
 h1, h2, h3
 {
     font-weight: bold;
@@ -13,6 +18,7 @@ h1, h2, h3
     border-radius: 20px;
     text-transform: uppercase;
     font-family: monospace;
+    transform: rotate(-2deg);
 }
 
 h1
