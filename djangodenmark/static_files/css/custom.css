@@ -2,3 +2,30 @@ li
 {
   margin-bottom: 0;
 }
+
+h1, h2, h3
+{
+    font-weight: bold;
+    background-color: #00c380;
+    padding: 10px;
+    border: 4px dotted #fffd51;
+    color: #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+
+h1
+{
+    font-size: 24px;
+}
+
+h2
+{
+    font-size: 20px;
+}
+
+h3
+{
+    font-size: 18px;
+}
