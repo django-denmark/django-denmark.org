@@ -44,8 +44,11 @@ class EmailConsent(models.Model):
     def email(self):
         return self.user.email
 
-    def get_valid_emails_and_names(self):
-        EmailConsent.objects.exclude(
+    def get_valid_consent(self):
+        """
+        Returns all current consent (that have not opted out)
+        """
+        return EmailConsent.objects.exclude(
             user__optouts__consent__is_everything=True
         ).exclude(
             optouts__user=F('user')
