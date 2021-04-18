@@ -9,10 +9,11 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-import os
+import pathlib
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Build paths inside the project like this: str(BASE_DIR / "static")
+BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -41,7 +42,7 @@ ROOT_URLCONF = "djangodenmark.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": (os.path.join(BASE_DIR, "templates"),),
+        "DIRS": (str(BASE_DIR / "templates"),),
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -65,7 +66,7 @@ WSGI_APPLICATION = "djangodenmark.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "NAME": str(BASE_DIR / "db.sqlite3"),
     }
 }
 
@@ -106,7 +107,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static_files"),)
+STATICFILES_DIRS = (str(BASE_DIR / "static_files"),)
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
