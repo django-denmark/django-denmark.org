@@ -4,13 +4,9 @@ django-denmark.org
 Local development bootstrapping:
 
 #. ``pip install -r requirements.txt``
-#. Edit ``djangodenmark/settings.local.py`` to specify at least ``from .dev import *``.
-#. Change your setting ``DATABASES`` to connect to a local Postgis. If you want to fix something quickly, you can also skip this step...
 #. Run ``python manage.py migrate``.
    * If you don't have Postgis, run it and then accept that it fails when migrating ``map`` and then get the remaining apps migrated running ``python manage.py migrate <app-label>``.
+#. Run ``python manage.py runserver``.
+#. Run ``python manage.py runserver`` again if this was the first time. In the future, you can add local settings to ``djangodenmark/settings/local.py``.
 
-To get the ``map`` application working, you need
-`Postgis <https://postgis.net>`__ installed.
-
-In order to get Postgres running on your system, consider reading this
-`Django Girls tutorial <https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation/index.html>`__
+In order to contribute, please create a Pull Request and we will get back 💖
