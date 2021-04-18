@@ -17,7 +17,7 @@ Further steps
 
 We recommend that you use pre-commit for your development::
 
-.. code-block:: shell
+.. code-block:: bash
 
   # Install so-called git hooks for checking code when you are committing
   pre-commit install
