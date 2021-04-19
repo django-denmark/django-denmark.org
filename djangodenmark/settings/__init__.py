@@ -9,7 +9,7 @@ try:
     from .local import *  # noqa
 except ImportError:
     sys.stderr.write(
-        "Could not find src/dukop/settings/local.py, creating a "
+        "Could not find djangodenmark/settings/local.py, creating a "
         "default one. Please customize it with your SECRET_KEY, DATABASES etc. "
         "and start again.\n"
     )
