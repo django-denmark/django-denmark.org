@@ -15,10 +15,6 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="{% static "css/normalize.css" %}">
-  <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
-  <link rel="stylesheet" href="{% static "css/custom.css" %}">
-
 </head>
 <body>
 
@@ -28,32 +24,8 @@
 
 <div class="row">
   <div class="one-half column" style="margin-top: 50px; margin-bottom: 50px;">
-    <img src="{% static "img/logo.png" %}" style="width: 100%;">
-  </div>
 </div>
-    
-    {% block content %}
-    {% endblock %}
-    
-    
-    {% if user.is_authenticated %}
-    
-    <p>
-      You are now logged in as {{ user }}
-    </p>
-    
-    {% else %}
-      <p>
-        <a href="{% url 'membership:login' %}">Log in</a>
-        //
-        <a href="{% url 'membership:invite' %}">Sign up</a>
-      </p>
-    {% endif %}
-    
-  </div>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</div>
 </body>
 </html>
 

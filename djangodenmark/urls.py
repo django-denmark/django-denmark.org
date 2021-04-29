@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import include
 from django.urls import path
 
-from membership import urls as membership_urls
+from event import urls as event_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("consent/", include("django_consent.urls")),
-    path("", include(membership_urls)),
+    path("", include(event_urls)),
 ]
+
+

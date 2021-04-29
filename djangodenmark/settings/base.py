@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "membership",
     "django_consent",
+    "event",
 ]
 
 MIDDLEWARE = [
