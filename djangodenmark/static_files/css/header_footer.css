@@ -1,0 +1,16 @@
+.bg-light {
+    background-color: #00C380 !important;
+}
+.navbar-toggler {
+    color: #00C380 !important;
+}
+.navbar-text, a {
+    color: white !important;
+}
+.login-logo {
+    width: 25px;
+    height: 25px;
+}
+.navbar-nav {
+    
+}
