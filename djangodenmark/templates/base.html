@@ -20,6 +20,16 @@
 <body>
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+  <a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="#">Navbar</a>
