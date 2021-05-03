@@ -1,0 +1,28 @@
+.hero {
+    position: relative;
+    text-align: center;
+}
+.hero-img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 400px;
+}
+.about-django {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.about-django h3 {
+    line-height: 20px;
+}
+.about-django-img {
+    width: 100%;
+    object-fit: contain;
+}
