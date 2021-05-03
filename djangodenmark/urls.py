@@ -16,11 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
+from django.views.generic.base import TemplateView
 
-from membership import urls as membership_urls
+from event import urls as event_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("consent/", include("django_consent.urls")),
-    path("", include(membership_urls)),
+    #path("", include(event_urls)),
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
+
+

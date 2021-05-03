@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "membership",
     "django_consent",
+    "event",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -42,7 +44,8 @@ ROOT_URLCONF = "djangodenmark.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": (str(BASE_DIR / "templates"),),
+        # "DIRS": (str(BASE_DIR.join / "templates"),),
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -115,4 +118,8 @@ STATIC_URL = "/static/"
 
 DJANGO_DENMARK_INVITE_CODES = []
 
-LOGIN_REDIRECT_URL = "membership:start"
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = 'home'
+
+SIGNUP_REDIRECT_URL = '/'
