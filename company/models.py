@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 # Create your models here.
 
@@ -10,7 +11,6 @@ class address(models.Model):
 
     def __str__(self):
         return '{} {} {} {}'.format(self.streetName, self.houseNumber, self.postalCode, self.region)
-        #return self.streetName, self.houseNumber, self.postalCode, self.region
 
 class contactInformation(models.Model):
     phoneNumber = models.CharField(max_length = 11)
@@ -19,7 +19,6 @@ class contactInformation(models.Model):
 
     def __str__(self):
         return '{} {} {}'.format(self.phoneNumber, self.email, self.mainContact)
-        #return self.phoneNumber, self.email, self.mainContact
 
 class company(models.Model):
     companyName = models.CharField(max_length = 145)
@@ -31,4 +30,21 @@ class company(models.Model):
 
     def __str__(self):
         return '{} {} {} {} {} {}'.format(self.companyName, self.companyAddress, self.description, self.companyContactInformation, self.websiteURL, self.relationToDjango)
-        #return self.companyName, self.description, self.websiteURL, self.relationToDjango
+
+class addressForm(ModelForm):
+    class Meta:
+        model = address
+        fields = '__all__'
+
+class contactInformationForm(ModelForm):
+    class Meta:
+        model = contactInformation
+        fields = '__all__'
+
+class companyForm(ModelForm):
+    class Meta:
+        model = company
+        fields = ['companyName', 'companyAddress', 'description', 'companyContactInformation', 'websiteURL', 'relationToDjango']
+
+
+
