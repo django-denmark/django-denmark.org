@@ -3,9 +3,9 @@
 {% block content %}
     <h2>Companies</h2>
     <ul>
-        {% for Company in Company_list %}
-            <li>{{ Company.companyName }}</li>
-            
+        {% for Company in company_list %}
+            <li>{{ Company.companyName }}
+            {{ Company.companyAddress }}</li>
         {% endfor %}
     </ul>
 
