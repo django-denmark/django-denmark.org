@@ -9,18 +9,29 @@
       {% csrf_token %}
 
       <div class="signup-input">
-      <p><label for="id_username"></label> <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username" placeholder="Username"> </p>
+      <label for="id_username">Username</label> 
+      <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username" placeholder="Username"> 
     </div>
-    <br>
-    <div class="password1">
-  <p><label for="id_password1"></label> <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" placeholder="Password"> <span class="helptext"></span></p><ul></ul><p></p>
-    </div>
-    <div class="password2">
-  <p><label for="id_password2"></label> <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2" placeholder="Repeat Password"> </p>
-</div>
 
-      <button type="submit" class="btn signup-btn">Sign Up</button>
-    </form>
+    <div class="email-input">
+      <label for="id_email">Email</label>
+      <input type="email" name="email" maxlength="150" autocapitalize="none" autocomplete="email" required="@" id="id_email" placeholder="Email"> 
+    </div>
+    
+    <div class="password1">
+      <label for="id_password1">Password</label> 
+      <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" placeholder="Password">
+    </div>
+    
+    <div class="password2">
+      <label for="id_password2">Repeat Password</label>
+      <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2" placeholder="Repeat Password"> 
+      <div class="signup-button">
+        <button type="submit" class="btn signup-btn">Sign Up</button>
       </div>
     </div>
+    {% csrf_token %}
+    </form>
+  </div>
+
 {% endblock %}
