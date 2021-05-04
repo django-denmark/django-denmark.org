@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "django_consent",
     "event",
     "accounts",
+    "company",
 ]
 
 MIDDLEWARE = [
