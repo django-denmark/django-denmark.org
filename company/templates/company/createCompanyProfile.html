@@ -2,9 +2,17 @@
 
 {% block content %}
 
-<form method="post">{% csrf_token %}
+<!-- <form method="post">{% csrf_token %}
     {{ form.as_p}}
     <input type="submit" value="Create Profile">
+</form> -->
+
+<form method="post" action="{% url 'createCompanyProfile' %}">
+    {% csrf_token %}
+    {{ companyForm }}
+    {{ addressForm }}
+    {{ contactInformationForm }}
+    <input type="submit">
 </form>
 
 {% endblock %}
