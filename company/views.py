@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import TemplateView
-from company.models import CompanyForm, AddressForm, ContactInformationForm
-from django.views.generic.edit import FormView
-from company.models import companyForm, addressForm, contactInformationForm, company, address
-from django.views.generic import FormView, ListView
+from django.views.generic import TemplateView, FormView, ListView
+from company.models import CompanyForm, AddressForm, ContactInformationForm, Company
+#from django.views.generic.edit import FormView
 
 # Create your views here.
 # class CompanyView(TemplateView):
@@ -43,5 +41,5 @@ def companyFormView(request):
         return super().form_valid(form)
 
 class CompanyView(ListView):
-    model = company
+    model = Company
     template_name = "company/companyoverview.html"
