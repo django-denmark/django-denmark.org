@@ -19,15 +19,13 @@ from django.urls import path
 from django.views.generic.base import TemplateView
 
 from event import urls as event_urls
-from company import urls as company_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(event_urls)),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('company/', include(company_urls)),
-    #path('company/', TemplateView.as_view(template_name='companyoverview.html'), name = "companyoverview"),
+    #path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
 
 
