@@ -1,6 +1,11 @@
 {% extends "company/base.html" %}
 
 {% block content %}
-<div>virker det??</div>
+    <h2>Companies</h2>
+    <ul>
+        {% for company in company_list %}
+            <li>{{ company.companyName }}</li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}
