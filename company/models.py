@@ -26,7 +26,3 @@ class CompanyForm(ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
-        # fields = 'companyName', 'description', 'websiteURL', 'relationToDjango', 'phoneNumber', 'email', 'mainContact', 'streetName', 'houseNumber', 'postalCode', 'region'
-
-
-
