@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import CompanyForm, Company
-from django.views.generic import FormView, ListView, TemplateView
+from django.views.generic import FormView, ListView, TemplateView, CreateView
 
 # Create your views here.
 
-class CompanyFormView(FormView):
+class CompanyFormView(CreateView):
     template_name = "company/createCompanyProfile.html"
     form_class = CompanyForm
     success_url = '/'
