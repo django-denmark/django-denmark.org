@@ -4,26 +4,10 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<div class="login-container">
-<h2 class="login-heading">Log In</h2>
+<h2>Log In</h2>
 <form method="post">
   {% csrf_token %}
-  
-  <div class="form-group login-input">
-    <input type="text" class="form-control" name="username"
-    placeholder="Username">
-  </div>
-  <br>
-  <div class="form-group login-input">
-    <input type="password" class="form-control" name="password"
-    placeholder="Password">
-  </div>
-  <br>
-
-  <button type="submit" class="btn login-btn">Login</button>
-  <a class="btn btn-primary" href="{% url 'signup' %}" role="button">Sign Up</a>
-  <br>
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
 </form>
-</div>
-
 {% endblock %}
