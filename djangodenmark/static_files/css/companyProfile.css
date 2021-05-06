@@ -1,0 +1,12 @@
+.company-profile-form {
+    margin: 100px auto;
+    line-height: 35px;
+    max-width: 700px;
+}
+.btn-submit {
+    background-color: #00C380;
+    color: white;
+}
+.form-control {
+    border-color: #00C380;
+}
