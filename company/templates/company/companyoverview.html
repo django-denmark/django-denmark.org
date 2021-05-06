@@ -5,6 +5,7 @@
     <ul>
         {% for Company in company_list %}
             <li>{{ Company.companyName }}</li>
+            <img src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
         {% endfor %}
     </ul>
 
