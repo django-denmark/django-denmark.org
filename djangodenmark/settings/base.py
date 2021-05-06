@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "event",
     "accounts",
     "company",
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [

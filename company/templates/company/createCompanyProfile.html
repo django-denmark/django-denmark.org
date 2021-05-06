@@ -1,11 +1,18 @@
 {% extends "company/base.html" %}
-
 {% block content %}
 
-<form method="POST" enctype="multipart/form-data">
+{% load widget_tweaks %}
+<form method="post" enctype="multipart/form-data" class="company-profile-form">
+    <h1>Create Company Profile</h1>
     {% csrf_token %}
-    {{ form.as_p}}
-    <input type="submit" value="Create Profile">
-</form>
+    
+    {% for field in form.visible_fields %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {% render_field field class="form-control" %}
+        </div>
+    {% endfor %}
+    <br>
+    <button type="submit" class="btn btn-submit" value="Create Profile">Submit</button>
 
 {% endblock %}
