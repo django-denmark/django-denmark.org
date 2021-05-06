@@ -1,12 +1,21 @@
 {% extends "company/base.html" %}
 
 {% block content %}
-    <h2>Companies</h2>
-    <ul>
+    <div class="company-overview">
+        <h1>Companies that use Django</h1>
+        <p>All the resources we've created are open sourced under Creative Commons Attribution 4.0 International (CC BY 4). This means that you can modify, distribute and use commercially, but you cannot sublicense and you have to give us credit and include copyright.</p>
+        <br>
+        <div class="card-container">
         {% for Company in company_list %}
-            <li>{{ Company.companyName }}</li>
-            <img src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
+        <div class="card company-card">
+                <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ Company.companyName }}</h5>
+                    <p class="card-text">{{ Company.description }}</p>
+                    <a href="#" class="btn btn-django">Go to company profile</a>
+                </div>
+        </div>
         {% endfor %}
-    </ul>
-
+        </div>
+    </div>
 {% endblock %}
