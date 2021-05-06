@@ -1,12 +1,8 @@
-from django.contrib.auth import login, authenticate
+from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
-   
-# Create your views here.
-def home_view(request):
-    context ={}
-    context['form']= InputForm()
-    return render(request, "signup.html", context)
+from django.urls import reverse_lazy
+from django.views import generic
+
 
 
 class SignUpView(generic.CreateView):
