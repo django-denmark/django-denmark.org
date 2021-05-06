@@ -5,9 +5,10 @@ from django.views.generic import FormView, ListView, UpdateView, CreateView, Del
 # Create your views here.
 
 class CompanyFormView(CreateView):
+    model = Company
     template_name = "company/createCompanyProfile.html"
     form_class = CompanyForm
-    success_url = '/'
+    success_url = '/company/companyoverview'
 
     def form_valid(self, form):
         print("Hurra det virker!!!!!! jaaaaaa det gør det hurraaaa !!!!")
