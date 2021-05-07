@@ -12,7 +12,6 @@ class CompanyFormView(CreateView):
     model = Company
     template_name = "company/createCompanyProfile.html"
     form_class = CompanyForm
-    success_url = '/company/companyoverview'
 
     def form_valid(self, form):
         print("Hurra det virker!!!!!! jaaaaaa det gør det hurraaaa !!!!")
@@ -21,6 +20,8 @@ class CompanyFormView(CreateView):
         obj.save()
         return super().form_valid(form)
 
+    def get_success_url(self, **kwargs):
+        return "/company/" + str(self.object.pk) + "/detailViewEditUpdateProfile"
 
 class CompanyView(ListView):
     model = Company
@@ -32,12 +33,22 @@ class CompanyDetailView(DetailView):
     template_name = "company/detailViewCompanyProfile.html"
     fields = '__all__'
 
+class CompanyDetailViewEditUpdate(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    model = Company
+    template_name = "company/detailViewEditUpdateProfile.html"
+    fields = '__all__'
+    
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.user == self.request.user
+
 # UpdateView
-class UpdateCompanyFormView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
+class UpdateCompanyFormView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Company
     template_name = "company/updateCompanyProfile.html"
     form_class = CompanyForm
-    success_url = '/company/companyoverview'
+    success_url = './detailViewEditUpdateProfile'
     
     def test_func(self):
         obj = self.get_object()
