@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 # Create your views here.
 
-class CompanyFormView(CreateView):
+class CompanyFormView(LoginRequiredMixin, CreateView):
     model = Company
     template_name = "company/createCompanyProfile.html"
     form_class = CompanyForm
@@ -37,7 +37,6 @@ class CompanyDetailViewEditUpdate(LoginRequiredMixin, UserPassesTestMixin, Detai
     model = Company
     template_name = "company/detailViewEditUpdateProfile.html"
     fields = '__all__'
-    
 
     def test_func(self):
         obj = self.get_object()
