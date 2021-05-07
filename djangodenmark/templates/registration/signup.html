@@ -1,12 +1,6 @@
-{% extends 'base.html' %}
-
-{% block title %}Sign Up{% endblock %}
-
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
+  <form method="post" novalidate>
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+    {% include 'company/createCompanyProfile.html' with form=form %}
   </form>
 {% endblock %}
