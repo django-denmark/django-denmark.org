@@ -1,7 +1,6 @@
 from django.db import models
 from django.forms import ModelForm
 from django import forms
-from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -13,8 +12,7 @@ class Company(models.Model):
     description = models.TextField()
     websiteURL = models.CharField(max_length = 100)
     relationToDjango = models.TextField()
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="fejl")
-    phoneNumber = models.CharField(validators=[phone_regex], max_length=17, blank=True)
+    phoneNumber = models.CharField(max_length=15, blank=False)
     email = models.EmailField(max_length = 100)
     mainContact = models.CharField(max_length = 50)
     streetName = models.CharField(max_length = 45)
@@ -27,11 +25,37 @@ class Company(models.Model):
 
 
 class CompanyForm(ModelForm):
+    def init(self, args, **kwargs):
+        super(CompanyForm, self).__init__(args, **kwargs)
 
     class Meta:
         model = Company
         exclude = ('user',)
         fields = '__all__'
+        labels = {
+            "email": ("New Email Label"),
+            "companyName": ("Company name"),
+            "logoImage": ("Company Logo"),
+            "description": ("Describe your company"),
+            "websiteURL": ("Link to your Website"),
+            "relationToDjango": ("Your Relation to Django"),
+            "phoneNumber": ("Phone Number"),
+            "mainContact": ("The main point of contact"),
+            "streetName": ("Streetname"),
+            "houseNumber": ("Housenumber"),
+            "postalCode": ("Postalcode"),
+            "region": ("Region"),
+        }
 
-        def init(self, args, **kwargs):
-            super(CompanyForm, self).init(args, **kwargs)
+
+    # def clean(self):
+    #     if self.cleaned_data.get('description')=="":
+    #         raise forms.ValidationError('No name!')
+    #         print("no name")
+    #     return self.cleaned_data
+    
+
+
+
+
+        
