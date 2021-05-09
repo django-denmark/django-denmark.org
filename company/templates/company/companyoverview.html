@@ -3,10 +3,11 @@
 {% block content %}
     <div class="company-overview">
         <h1>Companies that use Django</h1>
-        {% if user.is_authenticated %}
-            <button onclick="window.location.href='/company/createCompanyProfile/'">Create company Profile</button>
-        {% endif %}
         <p>All the resources we've created are open sourced under Creative Commons Attribution 4.0 International (CC BY 4). This means that you can modify, distribute and use commercially, but you cannot sublicense and you have to give us credit and include copyright.</p>
+        {% if user.is_authenticated %}
+            <button onclick="window.location.href='/company/createCompanyProfile/'" class="btn btn-django">Create company Profile</button>
+        {% endif %}
+        <br>
         <br>
         <div class="card-container">
         {% for Company in company_list %}
@@ -14,7 +15,7 @@
                 <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ Company.companyName }}</h5>
-                    <p class="card-text">{{ Company.description }}</p>
+                    <p class="card-text company-description">{{ Company.description }}</p>
                     <a href="#" class="btn btn-django">Go to company profile</a>
                 </div>
         </div>
