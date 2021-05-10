@@ -2,17 +2,23 @@ from django.db import models
 from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
 class Company(models.Model):
+    
+    def only_int(value): 
+        if value.isdigit()==False:
+            raise ValidationError('Phone number must only contain numbers.')
+    
     user = models.ForeignKey(User, on_delete = models.CASCADE, default = None)
     logoImage = models.ImageField(upload_to = 'images/', null = True)
     companyName = models.CharField(max_length = 145)
     description = models.TextField()
-    websiteURL = models.CharField(max_length = 100)
+    websiteURL = models.URLField(max_length = 100, blank=True)
     relationToDjango = models.TextField()
-    phoneNumber = models.CharField(max_length=15, blank=False)
+    phoneNumber = models.CharField(max_length=15, blank=False, validators=[only_int])
     email = models.EmailField(max_length = 100)
     mainContact = models.CharField(max_length = 50)
     streetName = models.CharField(max_length = 45)
@@ -33,29 +39,16 @@ class CompanyForm(ModelForm):
         exclude = ('user',)
         fields = '__all__'
         labels = {
-            "email": ("New Email Label"),
+            "email": ("Email"),
             "companyName": ("Company name"),
-            "logoImage": ("Company Logo"),
+            "logoImage": ("Company logo"),
             "description": ("Describe your company"),
-            "websiteURL": ("Link to your Website"),
-            "relationToDjango": ("Your Relation to Django"),
-            "phoneNumber": ("Phone Number"),
+            "websiteURL": ("Link to your website"),
+            "relationToDjango": ("Your relation to Django"),
+            "phoneNumber": ("Phone number"),
             "mainContact": ("The main point of contact"),
-            "streetName": ("Streetname"),
-            "houseNumber": ("Housenumber"),
-            "postalCode": ("Postalcode"),
+            "streetName": ("Street name"),
+            "houseNumber": ("House number"),
+            "postalCode": ("Postal code"),
             "region": ("Region"),
         }
-
-
-    # def clean(self):
-    #     if self.cleaned_data.get('description')=="":
-    #         raise forms.ValidationError('No name!')
-    #         print("no name")
-    #     return self.cleaned_data
-    
-
-
-
-
-        
