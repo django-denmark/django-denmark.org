@@ -1,0 +1,35 @@
+.company-overview {
+    margin: 100px auto;
+}
+.company-profile-form {
+    margin: 100px auto;
+    line-height: 35px;
+    max-width: 700px;
+}
+.btn-django {
+    background-color: #00C380;
+    color: white;
+}
+.form-control {
+    border-color: #00C380;
+}
+.company-card {
+    width: 250px;
+    margin: 15px 20px;
+    box-shadow: 4px 4px 5px -1px rgba(184,184,184,1);
+}
+.company-logo {
+    height: 100px;
+    width: 150px;
+    padding: 10px;
+}
+.company-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical; 
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+}

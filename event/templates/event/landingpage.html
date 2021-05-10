@@ -9,11 +9,26 @@
 {% block content %}
     <div class="row about-django">
         <div class="col-6">
-            <h3>What is Django Denmark?</h3>
+            <h2>What is Django Denmark?</h2>
             <p>Django Girls is a non-profit organization and a community that empowers and helps women to organize free, one-day programming workshops by providing tools, resources and support. We are a volunteer run organization with hundreds of people contributing to bring more amazing women into the world of technology. We are making technology more approachable by creating resources designed with empathy. During each of our events, 30-60 women build their first web application using HTML, CSS, Python and Django.</p>
         </div>
         <div class="col-6">
             <img class="about-django-img" src="{% static 'img/hero.png' %}">
         </div>
+    </div>
+    <h1>Events</h1>
+    <div class="event-container">
+    {% for Event in event_list %}
+        <div class="row event-row">
+            <div class="col-4 event-col"><img src="{{ Event.eventImage.url}}" alt="{{ Event.eventTitle }}"></div>
+            <div class="col-4 event-col">
+                <h3 class="event-title">{{ Event.eventTitle }}</h3>
+                <div>Date: {{ Event.date }}</div>
+                <div>Location: {{ Event.location }}</div>
+                <div>Description: {{ Event.description }}</div>
+            </div>
+            <div class="col-2 event-col"><a href="{{ Event.eventUrl }}" class="btn btn-event">Buy Tickets</a></div>
+        </div>
+    {% endfor %}
     </div>
 {% endblock %}

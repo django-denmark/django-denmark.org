@@ -1,0 +1,9 @@
+{% extends "company/detailViewCompanyProfile.html" %}
+
+{% block content %}
+<img src="{{ object.logoImage.url}}">
+<h1>{{ object.companyName}}</h1>
+<p>{{ object.description }}</p>
+<button onclick="window.location.href='./updateCompanyProfile'">Update profile</button>
+<button onclick="window.location.href='./deleteCompanyProfile'">Delete profile</button>
+{% endblock %}
