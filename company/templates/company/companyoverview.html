@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ Company.companyName }}</h5>
                     <p class="card-text company-description">{{ Company.description }}</p>
-                    <a href="#" class="btn btn-django">Go to company profile</a>
+                    <a href="/company/{{ Company.pk }}/detailViewCompanyProfile" class="btn btn-django">Go to company profile</a>
                 </div>
         </div>
         {% endfor %}
