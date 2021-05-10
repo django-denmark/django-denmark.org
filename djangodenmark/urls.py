@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from event import urls as event_urls
+from company import urls as company_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
