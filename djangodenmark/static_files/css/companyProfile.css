@@ -33,3 +33,6 @@
     display: flex;
     flex-wrap: wrap;
 }
+.modal-header {
+    border-bottom: 1px solid #00C380;
+}

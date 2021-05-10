@@ -16,7 +16,34 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ Company.companyName }}</h5>
                     <p class="card-text company-description">{{ Company.description }}</p>
-                    <a href="/company/{{ Company.pk }}/detailViewCompanyProfile" class="btn btn-django">Go to company profile</a>
+                    <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Company.pk }}">See company profile</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal{{ Company.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
+                            <h4 class="modal-title" id="exampleModalLabel">{{ Company.companyName }}</h4 >
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body row">
+                            <div class="col-6">
+                                <h6>Company Info</h6>
+                                <div>{{ Company.phoneNumber }}</div>
+                                <div>{{ Company.email }}</div>
+                                <div><a href="{{ Company.websiteURL }}">{{ Company.websiteURL }}</a></div>
+                                <div>{{ Company.streetName }} {{ Company.houseNumber }}, {{ Company.postalCode }} {{ Company.region }}</div>
+                            </div>
+                            <div class="col-6">
+                                <h5>Description:</h5>
+                                <p>{{ Company.description }}</p>
+                                <h5>Relation to Django:</h5>
+                                <p>{{ Company.relationToDjango }}</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
         </div>
         {% endfor %}
