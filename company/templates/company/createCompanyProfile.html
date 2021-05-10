@@ -4,7 +4,7 @@
 
 <form method="post" novalidate enctype="multipart/form-data" class="company-profile-form">
   {% csrf_token %}
-
+    <h1>Create your company profile</h1>
   {% for hidden_field in form.hidden_fields %}
     {{ hidden_field }}
   {% endfor %}
@@ -41,7 +41,7 @@
       {% endif %}
     </div>
   {% endfor %}
-
-  <button type="submit" class="btn btn-primary">Create profile</button>
+    <br>
+  <button type="submit" class="btn btn-django">Create profile</button>
 </form>
 {% endblock %}
