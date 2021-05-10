@@ -10,7 +10,7 @@ class Company(models.Model):
     
     def only_int(value): 
         if value.isdigit()==False:
-            raise ValidationError('Phonenumber must not contain characters!')
+            raise ValidationError('Phone number must only contain numbers.')
     
     user = models.ForeignKey(User, on_delete = models.CASCADE, default = None)
     logoImage = models.ImageField(upload_to = 'images/', null = True)
@@ -39,16 +39,16 @@ class CompanyForm(ModelForm):
         exclude = ('user',)
         fields = '__all__'
         labels = {
-            "email": ("New Email Label"),
+            "email": ("Email"),
             "companyName": ("Company name"),
-            "logoImage": ("Company Logo"),
+            "logoImage": ("Company logo"),
             "description": ("Describe your company"),
-            "websiteURL": ("Link to your Website"),
-            "relationToDjango": ("Your Relation to Django"),
-            "phoneNumber": ("Phone Number"),
+            "websiteURL": ("Link to your website"),
+            "relationToDjango": ("Your relation to Django"),
+            "phoneNumber": ("Phone number"),
             "mainContact": ("The main point of contact"),
-            "streetName": ("Streetname"),
-            "houseNumber": ("Housenumber"),
-            "postalCode": ("Postalcode"),
+            "streetName": ("Street name"),
+            "houseNumber": ("House number"),
+            "postalCode": ("Postal code"),
             "region": ("Region"),
         }
