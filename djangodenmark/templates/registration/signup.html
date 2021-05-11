@@ -5,6 +5,6 @@
     <h1>Sign Up</h1>
     {% include 'base-form.html' with form=form %}
     <button type="submit" class="btn btn-django">Sign Up</button> &emsp;&emsp;
-    <div onclick="window.location.href='{% url 'login' %}'" class="btn btn-django">Log In</div>
+    <div onclick="window.location.href='{% url 'login' %}'" class="btn btn-secondary">Log In</div>
   </form>
 {% endblock %}
