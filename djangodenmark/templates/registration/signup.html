@@ -1,6 +1,10 @@
+{% extends 'base.html' %}
+
 {% block content %}
-  <form method="post" novalidate>
-    {% csrf_token %}
-    {% include 'company/createCompanyProfile.html' with form=form %}
+  <form method="post" novalidate class="signup-login">
+    <h1>Sign Up</h1>
+    {% include 'base-form.html' with form=form %}
+    <button type="submit" class="btn btn-django">Sign Up</button> &emsp;
+    <div onclick="window.location.href='{% url 'login' %}'" class="btn btn-django">Log In</div>
   </form>
 {% endblock %}
