@@ -28,6 +28,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical; 
+    min-height: 96px;
 }
 .card-container {
     display: flex;
@@ -35,4 +36,7 @@
 }
 .modal-header {
     border-bottom: 1px solid #00C380;
+}
+.company-url {
+    text-decoration: underline;
 }

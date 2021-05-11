@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.core.validators import RegexValidator
 
 # Create your models here.
 
@@ -16,7 +17,14 @@ class Company(models.Model):
     logoImage = models.ImageField(upload_to = 'images/', null = True)
     companyName = models.CharField(max_length = 145)
     description = models.TextField()
-    websiteURL = models.URLField(max_length = 100, blank=True)
+    websiteURL = models.URLField(max_length = 100, blank=True, 
+    validators=[
+        RegexValidator(
+            regex='[http]',
+            message='Website URL must include https:// or http://',
+            code='invalid_url'
+        ),
+    ])
     relationToDjango = models.TextField()
     phoneNumber = models.CharField(max_length=15, blank=False, validators=[only_int])
     email = models.EmailField(max_length = 100)
