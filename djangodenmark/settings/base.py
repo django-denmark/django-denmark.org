@@ -122,7 +122,7 @@ STATIC_URL = "/static/"
 
 DJANGO_DENMARK_INVITE_CODES = []
 
-#LOGIN_REDIRECT_URL = 'landingpage'
+LOGIN_REDIRECT_URL = 'landingpage'
 
 LOGOUT_REDIRECT_URL = 'landingpage'
 
