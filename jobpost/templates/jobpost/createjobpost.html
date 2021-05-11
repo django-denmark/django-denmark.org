@@ -1,7 +1,7 @@
 {% extends "jobpost/base.html" %}
 {% block content %}
 
-<form method="post" novalidate enctype="multipart/form-data" class="company-profile-form">
+<form method="post" novalidate enctype="multipart/form-data" class="create-form">
   <h1>Create</h1>
   {% include 'base-form.html' with form=form %}
   <button type="submit" class="btn btn-django">Create profile</button>
