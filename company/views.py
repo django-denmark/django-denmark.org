@@ -33,14 +33,22 @@ class CompanyDetailView(DetailView):
     template_name = "company/detailViewCompanyProfile.html"
     fields = '__all__'
 
-class CompanyDetailViewEditUpdate(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+class CompanyDetailViewEditUpdate(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Company
     template_name = "company/detailViewEditUpdateProfile.html"
     fields = '__all__'
 
     def test_func(self):
-        obj = self.get_object()
-        return obj.user == self.request.user
+       if self.request.user == self.request.user:
+          return True
+       return False
+
+    def get_queryset(self):
+        return super(CompanyDetailViewEditUpdate, self).get_queryset().filter(user=self.request.user)
+
+    # def test_func(self):
+    #     obj = self.get_object()
+    #     return obj.user == self.request.user
 
 # UpdateView
 class UpdateCompanyFormView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):

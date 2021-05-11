@@ -1,9 +1,26 @@
-{% extends "company/detailViewCompanyProfile.html" %}
+{% extends "company/companyoverview.html" %}
 
 {% block content %}
-<img src="{{ object.logoImage.url}}">
-<h1>{{ object.companyName}}</h1>
-<p>{{ object.description }}</p>
-<button onclick="window.location.href='./updateCompanyProfile'">Update profile</button>
-<button onclick="window.location.href='./deleteCompanyProfile'">Delete profile</button>
+    <div class="company-overview">
+        <h1>Your company profiles</h1>
+        {% if not user.is_authenticated %}
+        <p>no company profile</p>
+        {% endif %}
+        <br>
+        <div class="card-container">
+        {% for Company in company_list %}
+        <div class="card company-card">
+                <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ Company.companyName }}</h5>
+                    <p class="card-text company-description">{{ Company.description }}</p>
+                    <a href="/company/{{ Company.pk }}/detailViewCompanyProfile" class="btn btn-django">Go to company profile</a>
+                    <button onclick="window.location.href='./updateCompanyProfile'">Update profile</button>
+                    <button onclick="window.location.href='./deleteCompanyProfile'">Delete profile</button>
+
+                </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}
