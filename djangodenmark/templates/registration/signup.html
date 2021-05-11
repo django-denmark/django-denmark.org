@@ -4,7 +4,7 @@
   <form method="post" novalidate class="signup-login">
     <h1>Sign Up</h1>
     {% include 'base-form.html' with form=form %}
-    <button type="submit" class="btn btn-django">Sign Up</button> &emsp;
+    <button type="submit" class="btn btn-django">Sign Up</button> &emsp;&emsp;
     <div onclick="window.location.href='{% url 'login' %}'" class="btn btn-django">Log In</div>
   </form>
 {% endblock %}
