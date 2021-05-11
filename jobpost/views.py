@@ -4,7 +4,7 @@ from django.views.generic import FormView, ListView, UpdateView, CreateView, Del
 from django.contrib.auth.views import redirect_to_login
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+from django.db.models import Q 
 
 # Create your views here.
 class JobpostFormView(LoginRequiredMixin, CreateView):
@@ -26,3 +26,14 @@ class JobpostFormView(LoginRequiredMixin, CreateView):
 class JobpostView(ListView):
     model = Jobpost
     template_name = "jobpost/jobpostoverview.html"
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query == None:
+            pass
+        else:
+            jobpost_list = Jobpost.objects.filter(
+                Q(jobTitle__icontains=query) | Q(jobCompanyName__icontains=query)
+            )
+            return jobpost_list
+
