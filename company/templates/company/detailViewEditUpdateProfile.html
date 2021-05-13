@@ -21,6 +21,44 @@
                 </div>
         </div>
         {% endfor %}
+        <br>
+        <h1>Your Jobposts</h1>
+        {% for Jobpost in jobpost_list %}
+        <div class="card company-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ Jobpost.jobTitle }}</h5>
+                    <p class="card-text company-description">{{ Jobpost.jobDescription }}</p>
+                    <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">See Job</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal{{ Jobpost.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalLabel">{{ Jobpost.jobTitle }}</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <br>
+                        <div class="modal-body row">
+                            <div class="col-6">
+                                <h6>Job Info</h6>
+                                <div>{{ Jobpost.jobCompanyName }}</div>
+                                <div>{{ Jobpost.jobContactPerson }}</div>
+                                <div>{{ Jobpost.jobLocation }}</div>
+                                <div>{{ Jobpost.jobType }}</div>
+                            </div>
+                            <div class="col-6">
+                                <h5>Description:</h5>
+                                <p>{{ Jobpost.jobDescription }}</p>
+                                <div class="company-url" onclick="window.location.href='{{ Jobpost.jobApplyHere }}'">{{ Jobpost.jobApplyHere }}</div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+        {% endfor %}
+        </div>
         </div>
     </div>
 {% endblock %}
