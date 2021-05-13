@@ -3,6 +3,7 @@ from .models import CompanyForm, Company
 from django.views.generic import FormView, ListView, UpdateView, CreateView, DeleteView, DetailView
 from django.contrib.auth.views import redirect_to_login
 from django.contrib.auth.models import User
+from jobpost.models import Jobpost
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
@@ -46,6 +47,13 @@ class CompanyDetailViewEditUpdate(LoginRequiredMixin, UserPassesTestMixin, ListV
 
     def get_queryset(self):
         return super(CompanyDetailViewEditUpdate, self).get_queryset().filter(user=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        myJobposts = Jobpost.objects.all()
+        context['jobpost_list'] = myJobposts
+        return context
+
 
     # def test_func(self):
     #     obj = self.get_object()
