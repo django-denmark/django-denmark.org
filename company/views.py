@@ -12,6 +12,7 @@ class CompanyFormView(LoginRequiredMixin, CreateView):
     model = Company
     template_name = "company/createCompanyProfile.html"
     form_class = CompanyForm
+    success_url = "/company/detailViewEditUpdateProfile"
 
     def form_valid(self, form):
         print("Hurra det virker!!!!!! jaaaaaa det gør det hurraaaa !!!!")
@@ -20,8 +21,8 @@ class CompanyFormView(LoginRequiredMixin, CreateView):
         obj.save()
         return super().form_valid(form)
 
-    def get_success_url(self, **kwargs):
-        return "/company/" + str(self.object.pk) + "/detailViewEditUpdateProfile"
+    # def get_success_url(self, **kwargs):
+    #     return "/company/" + str(self.object.pk) + "/detailViewCompanyProfile.html"
 
 class CompanyView(ListView):
     model = Company

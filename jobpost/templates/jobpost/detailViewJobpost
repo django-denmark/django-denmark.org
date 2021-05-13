@@ -1,0 +1,8 @@
+{% extends "jobpost/base.html" %}
+
+{% block content %}
+<h1>{{ object.jobTitle}}</h1>
+<p>{{ object.jobCompanyName }}</p>
+<button onclick="window.location.href='./updateJobpost'">Update profile</button>
+<!-- <button onclick="window.location.href='./deleteJobpost'">Delete profile</button> -->
+{% endblock %}
