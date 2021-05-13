@@ -3,6 +3,6 @@
 {% block content %}
 <img src="{{ object.logoImage.url}}">
 <h1>{{ object.companyName}}</h1>
-<p>{{ object.description }}</p>
+<p>{{ object.description|linebreaks }}</p>
 
 {% endblock %}

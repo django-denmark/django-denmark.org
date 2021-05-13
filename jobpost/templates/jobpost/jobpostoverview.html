@@ -39,8 +39,8 @@
                             </div>
                             <div class="col-6">
                                 <h5>Description:</h5>
-                                <p>{{ Jobpost.jobDescription }}</p>
-                                <div class="company-url" onclick="window.location.href='{{ Jobpost.jobApplyHere }}'">{{ Jobpost.jobApplyHere }}</div>
+                                <p>{{ Jobpost.jobDescription|linebreaks }}</p>
+                                <button class="btn btn-django" onclick="window.location.href='{{ Jobpost.jobApplyHere }}'">Apply here</button>
                             </div>
                         </div>
                         </div>
