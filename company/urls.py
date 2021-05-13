@@ -8,5 +8,5 @@ urlpatterns = [
     path('<pk>/updateCompanyProfile', UpdateCompanyFormView.as_view()),
     path('<pk>/deleteCompanyProfile', DeleteCompanyFormView.as_view()),
     path('<pk>/detailViewCompanyProfile', CompanyDetailView.as_view()),
-    path('<pk>/detailViewEditUpdateProfile', CompanyDetailViewEditUpdate.as_view()),
+    path('detailViewEditUpdateProfile/', CompanyDetailViewEditUpdate.as_view()),
 ]
