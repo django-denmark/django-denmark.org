@@ -28,14 +28,14 @@
                         </div>
                         <br>
                         <div class="modal-body row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <h6>Company Info</h6>
                                 <div>{{ Company.phoneNumber }}</div>
                                 <div>{{ Company.email }}</div>
                                 <div class="company-url" onclick="window.location.href='{{ Company.websiteURL }}'">{{ Company.websiteURL }}</div>
                                 <div>{{ Company.streetName }} {{ Company.houseNumber }}, {{ Company.postalCode }} {{ Company.region }}</div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-8">
                                 <h5>Description:</h5>
                                 <p>{{ Company.description }}</p>
                                 <h5>Relation to Django:</h5>
