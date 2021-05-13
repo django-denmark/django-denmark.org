@@ -31,11 +31,11 @@ class JobpostView(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         if query == None:
-            pass
+            jobpost_list = Jobpost.objects.all()
+            return jobpost_list
         else:
             jobpost_list = Jobpost.objects.filter(
-                Q(jobTitle__icontains=query) | Q(jobCompanyName__icontains=query)
-            )
+                Q(jobTitle__icontains=query) | Q(jobCompanyName__icontains=query))
             return jobpost_list
 
 
