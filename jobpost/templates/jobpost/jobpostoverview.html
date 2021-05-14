@@ -15,9 +15,10 @@
         <br>
         <div class="card-container">
         {% for Jobpost in jobpost_list %}
-        <div class="card company-card">
+        <div class="card jobpost-card">
                 <div class="card-body">
                     <h5 class="card-title">{{ Jobpost.jobTitle }}</h5>
+                    <h6 class="card-text info-line">{{ Jobpost.jobCompanyName }} &bull; {{ Jobpost.jobLocation }} &bull; {{ Jobpost.jobType }}</h6>
                     <p class="card-text company-description">{{ Jobpost.jobDescription }}</p>
                     <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">See Job</button>
                     <!-- Modal -->
