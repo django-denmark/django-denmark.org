@@ -35,3 +35,9 @@
 .company-url {
     text-decoration: underline;
 }
+
+.jobpost-card{
+    width: 557px;
+    margin: 15px 20px;
+    box-shadow: 4px 4px 5px -1px rgba(184,184,184,1);
+}
