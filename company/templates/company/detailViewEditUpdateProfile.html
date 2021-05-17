@@ -32,6 +32,10 @@
                     <h5 class="card-title">{{ Jobpost.jobTitle }}</h5>
                     <p class="card-text company-description">{{ Jobpost.jobDescription }}</p>
                     <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">See Job</button>
+                    <div class="btn-grouped">
+                        <button class="btn btn-django" onclick="window.location.href='/jobpost/{{ Jobpost.pk }}/updateJobpost'">Update</button>
+                        <button class="btn btn-django" onclick="window.location.href='/jobpost/{{ Jobpost.pk }}/deleteJobpost'">Delete</button>
+                    </div>
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal{{ Jobpost.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">

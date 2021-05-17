@@ -34,7 +34,7 @@ class JobpostView(ListView):
             return jobpost_list
         else:
             jobpost_list = Jobpost.objects.filter(
-                Q(jobTitle__icontains=query) | Q(jobCompanyName__icontains=query))
+                Q(jobTitle__icontains=query) | Q(jobCompanyName__icontains=query)| Q(jobType__icontains=query))
             return jobpost_list
 
 class JobpostDetailView(DetailView):
