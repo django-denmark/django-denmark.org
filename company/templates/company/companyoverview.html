@@ -37,9 +37,10 @@
                             </div>
                             <div class="col-8">
                                 <h5>Description:</h5>
-                                <p>{{ Company.description }}</p>
+                                
+                                <p>{{ Company.description|linebreaks }}</p>
                                 <h5>Relation to Django:</h5>
-                                <p>{{ Company.relationToDjango }}</p>
+                                <p>{{ Company.relationToDjango|linebreaks }}</p>
                             </div>
                         </div>
                         </div>

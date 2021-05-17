@@ -15,13 +15,16 @@
                     <h5 class="card-title">{{ Company.companyName }}</h5>
                     <p class="card-text company-description">{{ Company.description }}</p>
                     <a href="/company/{{ Company.pk }}/detailViewCompanyProfile" class="btn btn-django">Go to company profile</a>
-                    <button onclick="window.location.href='./updateCompanyProfile'">Update profile</button>
-                    <button onclick="window.location.href='./deleteCompanyProfile'">Delete profile</button>
+                    <div class="btn-grouped">
+                        <button class="btn btn-django" onclick="window.location.href='./{{ Company.pk }}/updateCompanyProfile'">Update</button>
+                        <button class="btn btn-django" onclick="window.location.href='/company/{{ Company.pk }}/deleteCompanyProfile'">Delete</button>
+                    </div>
 
                 </div>
         </div>
         {% endfor %}
-        <br>
+    </div>
+    <div class="company-overview">    
         <h1>Your Jobposts</h1>
         {% for Jobpost in jobpost_list %}
         <div class="card company-card">
@@ -48,8 +51,8 @@
                             </div>
                             <div class="col-6">
                                 <h5>Description:</h5>
-                                <p>{{ Jobpost.jobDescription }}</p>
-                                <div class="company-url" onclick="window.location.href='{{ Jobpost.jobApplyHere }}'">{{ Jobpost.jobApplyHere }}</div>
+                                <p>{{ Jobpost.jobDescription|linebreaks }}</p>
+                                <button class="btn btn-django" onclick="window.location.href='{{ Jobpost.jobApplyHere }}'">Apply here</button>
                             </div>
                         </div>
                         </div>
