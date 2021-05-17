@@ -66,8 +66,3 @@
 .event-container::-webkit-scrollbar:horizontal {
     display: none;
 }
-
-.card-container.landingpage {
-    justify-content: center;
-    
-}
