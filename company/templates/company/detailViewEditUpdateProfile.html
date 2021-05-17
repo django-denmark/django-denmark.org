@@ -16,7 +16,7 @@
                     <p class="card-text company-description">{{ Company.description }}</p>
                     <a href="/company/{{ Company.pk }}/detailViewCompanyProfile" class="btn btn-django">Go to company profile</a>
                     <div class="btn-grouped">
-                        <button class="btn btn-django" onclick="window.location.href='./{{ Company.pk }}/updateCompanyProfile'">Update</button>
+                        <button class="btn btn-django" onclick="window.location.href='/company/{{ Company.pk }}/updateCompanyProfile'">Update</button>
                         <button class="btn btn-django" onclick="window.location.href='/company/{{ Company.pk }}/deleteCompanyProfile'">Delete</button>
                     </div>
 

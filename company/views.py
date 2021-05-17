@@ -64,7 +64,7 @@ class UpdateCompanyFormView(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
     model = Company
     template_name = "company/updateCompanyProfile.html"
     form_class = CompanyForm
-    success_url = './detailViewEditUpdateProfile'
+    success_url = '/company/detailViewEditUpdateProfile'
     
     def test_func(self):
         obj = self.get_object()
