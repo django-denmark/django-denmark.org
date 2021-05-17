@@ -17,6 +17,7 @@
     height: 100px;
     width: 150px;
     padding: 10px;
+    object-fit: contain;
 }
 .company-description {
     overflow: hidden;
@@ -39,9 +40,6 @@
 }
 .company-url {
     text-decoration: underline;
-}
-.card-img-top {
-object-fit: contain;
 }
 
 .jobpost-card {

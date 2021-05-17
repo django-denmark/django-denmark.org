@@ -12,7 +12,7 @@
         <div class="card-container">
         {% for Company in company_list %}
         <div class="card company-card">
-                <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
+                <img class="company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ Company.companyName }}</h5>
                     <p class="card-text company-description">{{ Company.description }}</p>
