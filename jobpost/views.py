@@ -47,7 +47,7 @@ class UpdateJobpostFormView(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
     model = Jobpost
     template_name = "jobpost/updateJobpost.html"
     form_class = JobpostForm
-    success_url = 'company/detailViewEditUpdateProfile'
+    success_url = '/company/detailViewEditUpdateProfile'
     
     def test_func(self):
         obj = self.get_object()
