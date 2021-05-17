@@ -37,6 +37,12 @@
 .modal-header {
     border-bottom: 1px solid #00C380;
 }
+.modal-body {
+    padding: 2rem;
+}
 .company-url {
     text-decoration: underline;
+}
+.card-img-top {
+object-fit: contain;
 }
