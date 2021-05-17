@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 
 from event import urls as event_urls
 from company import urls as company_urls
+from jobpost import urls as jobpost_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,6 +30,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('company/', include(company_urls)),
+    path('jobpost/', include(jobpost_urls))
     
 ]
 

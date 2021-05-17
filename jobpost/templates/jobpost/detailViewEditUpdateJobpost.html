@@ -1,0 +1,25 @@
+{% extends "jobpost/jobpostoverview.html" %}
+
+{% block content %}
+<h1>{{ object.jobTitle}}</h1>
+<p>{{ object.jobCompanyName }}</p>
+<button onclick="window.location.href='./updateJobpost'">Update profile</button>
+<button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">Delete profile</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{ Jobpost.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel">{{ Jobpost.jobTitle }}</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <br>
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ Jobpost.jobTitle }}"?</p>
+            <input type="submit" value="Delete jobpost">
+            
+        </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

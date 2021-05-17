@@ -1,28 +1,19 @@
-{% extends "company/companyoverview.html" %}
+{% extends "jobpost/base.html" %}
 
 {% block content %}
     <div class="company-overview">
-        <h1>Your company profiles</h1>
-        {% if not user.is_authenticated %}
-        <p>no company profile</p>
+        <h1>Job Postings</h1>
+        <p>All the resources we've created are open sourced under Creative Commons Attribution 4.0 International (CC BY 4). This means that you can modify, distribute and use commercially, but you cannot sublicense and you have to give us credit and include copyright.</p>
+        <form action="{% url 'jobpostoverview' %}" method="get">
+            <input name="q" type="text" placeholder="Search...">
+            <button type="submit" class="btn btn-django">search after job</button>
+        </form>
+        {% if user.is_authenticated %}
+            <button onclick="window.location.href='/jobpost/createjobpost/'" class="btn btn-django">Create Job posting</button>
         {% endif %}
         <br>
-        <div class="card-container">
-        {% for Company in company_list %}
-        <div class="card company-card">
-                <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ Company.companyName }}</h5>
-                    <p class="card-text company-description">{{ Company.description }}</p>
-                    <a href="/company/{{ Company.pk }}/detailViewCompanyProfile" class="btn btn-django">Go to company profile</a>
-                    <button onclick="window.location.href='./updateCompanyProfile'">Update profile</button>
-                    <button onclick="window.location.href='./deleteCompanyProfile'">Delete profile</button>
-
-                </div>
-        </div>
-        {% endfor %}
         <br>
-        <h1>Your Jobposts</h1>
+        <div class="card-container">
         {% for Jobpost in jobpost_list %}
         <div class="card company-card">
                 <div class="card-body">
@@ -58,7 +49,6 @@
                 </div>
         </div>
         {% endfor %}
-        </div>
         </div>
     </div>
 {% endblock %}
