@@ -8,5 +8,4 @@ urlpatterns = [
     path('<pk>/updateJobpost', UpdateJobpostFormView.as_view()),
     path('<pk>/deleteJobpost', DeleteJobpostFormView.as_view()),
     path('<pk>/detailViewJobpost', JobpostDetailView.as_view()),
-    # path('<pk>/detailViewEditUpdateJobpost/', DetailViewEditUpdateJobpost.as_view()),
 ]
