@@ -4,14 +4,14 @@
     <div class="company-overview">
         <h1>Job Postings</h1>
         <p>All the resources we've created are open sourced under Creative Commons Attribution 4.0 International (CC BY 4). This means that you can modify, distribute and use commercially, but you cannot sublicense and you have to give us credit and include copyright.</p>
+        {% if user.is_authenticated %}
+        <div><button onclick="window.location.href='/jobpost/createjobpost/'" class="btn btn-django">Create Job posting</button></div>
+        <br>
+        {% endif %}
         <form action="{% url 'jobpostoverview' %}" method="get">
             <input name="q" type="text" placeholder="Search...">
             <button type="submit" class="btn btn-django">search after job</button>
         </form>
-        {% if user.is_authenticated %}
-            <button onclick="window.location.href='/jobpost/createjobpost/'" class="btn btn-django">Create Job posting</button>
-        {% endif %}
-        <br>
         <br>
         <div class="card-container">
         {% for Jobpost in jobpost_list %}
