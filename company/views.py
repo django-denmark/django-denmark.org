@@ -16,7 +16,6 @@ class CompanyFormView(LoginRequiredMixin, CreateView):
     success_url = "/company/detailViewEditUpdateProfile"
 
     def form_valid(self, form):
-        print("Hurra det virker!!!!!! jaaaaaa det gør det hurraaaa !!!!")
         obj = form.save(commit = False)
         obj.user = self.request.user
         obj.save()

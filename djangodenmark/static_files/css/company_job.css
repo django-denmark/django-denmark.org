@@ -41,17 +41,34 @@
 .company-url {
     text-decoration: underline;
 }
-
 .jobpost-card {
     width: 557px;
     margin: 15px 20px;
     box-shadow: 4px 4px 5px -1px rgba(184,184,184,1);
 }
-
 .btn-grouped {
     margin-top: 10px;
 }
-
 .info-line{
     color: gray;
+}
+.job-list {
+    height: 415px;
+    margin-bottom: -70px;
+    margin-top: -15px;
+    overflow: auto;
+}
+.job-list::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+.job-list::-webkit-scrollbar:vertical {
+    width: 5px;
+}
+.job-list::-webkit-scrollbar-thumb:vertical {
+    border-radius: 8px;
+    border: 2px solid #00C380; /* should match background, can't be transparent */
+    background-color: #00C380;
+}
+.job-list::-webkit-scrollbar:horizontal {
+    display: none;
 }

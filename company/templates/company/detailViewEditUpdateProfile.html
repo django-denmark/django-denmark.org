@@ -3,10 +3,12 @@
 {% block content %}
 {% comment %} COMPANIES {% endcomment %}
     <div class="company-overview">
-        <h1>Your company profiles</h1>
-        {% if not user.is_authenticated %}
-        <p>No company profile.</p>
-        {% endif %}
+        <div class="row">
+            <h1 class="col-9">Your company profiles</h1>
+            {% if user.is_authenticated %}
+                <button onclick="window.location.href='/company/createCompanyProfile/'" class="btn btn-django col-3">Create company Profile</button>
+            {% endif %}
+        </div>
         <br>
         <div class="card-container">
         {% for Company in company_list %}
@@ -71,8 +73,14 @@
     </div>
     
     {% comment %} JOB POSTS {% endcomment %}
-    <div class="company-overview">    
-        <h1>Your Jobposts</h1>
+    <div class="company-overview">  
+        <div class="row">  
+            <h1 class="col-9">Your Jobposts</h1>
+            {% if user.is_authenticated %}
+                <button onclick="window.location.href='/jobpost/createjobpost/'" class="btn btn-django col-3">Create Job posting</button>
+            {% endif %}
+        </div>    
+        <br>
         <div class="card-container">
             {% for Jobpost in jobpost_list %}
             <div class="card company-card">
