@@ -55,7 +55,7 @@ class UpdateJobpostFormView(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
 # DeleteView
 class DeleteJobpostFormView(DeleteView):
     model = Jobpost
-    template_name = "jobpost/deleteJobpost.html"
-    success_url = '/jobpost/jobpostoverview'
+    template_name = "/company/detailViewEditUpdateProfile.html"
+    success_url = '/company/detailViewEditUpdateProfile'
 
 

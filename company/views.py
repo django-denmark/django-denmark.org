@@ -72,5 +72,5 @@ class UpdateCompanyFormView(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
 # DeleteView
 class DeleteCompanyFormView(DeleteView):
     model = Company
-    template_name = "company/deleteCompanyProfile.html"
-    success_url = '/company/companyoverview'
+    template_name = "company/detailViewEditUpdateProfile.html"
+    success_url = '/company/detailViewEditUpdateProfile'
