@@ -32,10 +32,12 @@ class Company(models.Model):
     streetName = models.CharField(max_length = 45)
     houseNumber = models.IntegerField()
     postalCode = models.IntegerField()
-    region = models.CharField(max_length = 45)    
+    region = models.CharField(max_length = 45)
+    created_at = models.DateTimeField(auto_now_add=True)
+        
     
     def __str__(self):
-        return '{} {} {} {} {} {} {} {} {} {} {} {}'.format(self.user, self.companyName, self.description, self.websiteURL, self.relationToDjango, self.phoneNumber, self.email, self.mainContact, self.streetName, self.houseNumber, self.postalCode, self.region)
+        return '{} {} {} {} {} {} {} {} {} {} {} {} {}'.format(self.user, self.companyName, self.description, self.websiteURL, self.relationToDjango, self.phoneNumber, self.email, self.mainContact, self.streetName, self.houseNumber, self.postalCode, self.region, self.created_at)
 
 
 class CompanyForm(ModelForm):
@@ -44,7 +46,7 @@ class CompanyForm(ModelForm):
 
     class Meta:
         model = Company
-        exclude = ('user',)
+        exclude = ('user', 'created_at')
         fields = '__all__'
         labels = {
             "email": ("Email"),
@@ -60,3 +62,4 @@ class CompanyForm(ModelForm):
             "postalCode": ("Postal code"),
             "region": ("Region"),
         }
+        

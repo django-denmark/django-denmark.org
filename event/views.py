@@ -13,6 +13,6 @@ class LandingpageView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        LandingpageCompany = Company.objects.all()[0:3]
+        LandingpageCompany = Company.objects.all().order_by('-created_at',)[0:3]
         context['company_list'] = LandingpageCompany
         return context
