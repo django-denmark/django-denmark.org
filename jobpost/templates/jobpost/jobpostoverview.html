@@ -2,15 +2,15 @@
 
 {% block content %}
     <div class="company-overview">
-        <h1>Job Posts</h1>
+        <h1>Job posts</h1>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         <br>
         <div class="row">
             <div class="col-5">
                 <form action="{% url 'jobpostoverview' %}" method="get">
                     <input class="search-input" name="q" type="text" placeholder="Search...">
-                    <button type="submit" class="btn btn-django">Search Jobs</button>
-                    &emsp;<a href="/jobpost/jobpostoverview">Clear Search</a>
+                    <button type="submit" class="btn btn-django">Search jobs</button>
+                    &emsp;<a href="/jobpost/jobpostoverview">Clear search</a>
                 </form>
                 <p class="search-text">Search for job title, company name, job location or job type.</p>
             </div>
@@ -22,7 +22,7 @@
                             <h5 class="card-title">{{ Jobpost.jobTitle }}</h5>
                             <h6 class="card-text info-line">{{ Jobpost.jobCompanyName }} &bull; {{ Jobpost.jobLocation }} &bull; {{ Jobpost.jobType }}</h6>
                             <p class="card-text company-description">{{ Jobpost.jobDescription }}</p>
-                            <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">See Job</button>
+                            <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">See job</button>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal{{ Jobpost.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">

@@ -87,7 +87,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ Jobpost.jobTitle }}</h5>
                         <p class="card-text company-description">{{ Jobpost.jobDescription }}</p>
-                        <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">See Job Post</button>
+                        <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">See job post</button>
                         <div class="btn-grouped">
                             <button class="btn btn-django" onclick="window.location.href='/jobpost/{{ Jobpost.pk }}/updateJobpost'">Update</button>
                             {% comment %} delete job modal {% endcomment %}
