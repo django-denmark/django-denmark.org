@@ -16,7 +16,6 @@ class JobpostFormView(LoginRequiredMixin, CreateView):
 
 
     def form_valid(self, form):
-        print("Hurra det virker!!!!!! jaaaaaa det gør det hurraaaa !!!!")
         obj = form.save(commit = False)
         obj.user = self.request.user
         obj.save()
@@ -34,7 +33,7 @@ class JobpostView(ListView):
             return jobpost_list
         else:
             jobpost_list = Jobpost.objects.filter(
-                Q(jobTitle__icontains=query) | Q(jobCompanyName__icontains=query)| Q(jobType__icontains=query))
+                Q(jobTitle__icontains=query) | Q(jobCompanyName__icontains=query)| Q(jobLocation__icontains=query)| Q(jobType__icontains=query))
             return jobpost_list
 
 class JobpostDetailView(DetailView):

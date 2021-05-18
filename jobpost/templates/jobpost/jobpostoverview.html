@@ -3,16 +3,18 @@
 {% block content %}
     <div class="company-overview">
         <h1>Job Postings</h1>
-        <p>All the resources we've created are open sourced under Creative Commons Attribution 4.0 International (CC BY 4). This means that you can modify, distribute and use commercially, but you cannot sublicense and you have to give us credit and include copyright.</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         <br>
         <div class="row">
-            <div class="col-6">
+            <div class="col-5">
                 <form action="{% url 'jobpostoverview' %}" method="get">
-                    <input name="q" type="text" placeholder="Search...">
-                    <button type="submit" class="btn btn-django">search after job</button>
+                    <input class="search-input" name="q" type="text" placeholder="Search...">
+                    <button type="submit" class="btn btn-django">Search Jobs</button>
+                    &emsp;<a href="/jobpost/jobpostoverview">Clear Search</a>
                 </form>
+                <p class="search-text">Search for job title, company name, job location or job type.</p>
             </div>
-            <div class="col-6 job-list">
+            <div class="col-7 job-list">
                 <div class="card-container">
                     {% for Jobpost in jobpost_list %}
                     <div class="card jobpost-card">

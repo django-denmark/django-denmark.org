@@ -72,3 +72,9 @@
 .job-list::-webkit-scrollbar:horizontal {
     display: none;
 }
+.search-text {
+    margin-top: 10px;
+}
+.search-input {
+    margin-bottom: 10px;
+}
