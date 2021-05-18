@@ -6,6 +6,6 @@ urlpatterns = [
     path('jobpostoverview/', JobpostView.as_view(), name = "jobpostoverview"),
     path('createjobpost/', JobpostFormView.as_view(), name = "createjobpost"),
     path('<pk>/updateJobpost', UpdateJobpostFormView.as_view()),
-    path('<pk>/deleteJobpost', DeleteJobpostFormView.as_view()),
+    path('<pk>/deleteJobpost', DeleteJobpostFormView.as_view(), name = "delete_jobpost"),
     path('<pk>/detailViewJobpost', JobpostDetailView.as_view()),
 ]

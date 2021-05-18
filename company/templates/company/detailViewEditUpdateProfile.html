@@ -29,7 +29,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                                    <form action="{% url 'delete_company' pk=Company.pk %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
                                         <p>Are you sure you want to delete "{{ Company.companyName }}"?</p>
                                         <input class="btn btn-danger" type="submit" value="Delete Profile">
                                     </form>
@@ -99,7 +99,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                                        <form action="{% url 'delete_jobpost' pk=Jobpost.pk %}" method="post" enctype="multipart/form-data">{% csrf_token %}
                                             <p>Are you sure you want to delete "{{ Jobpost.jobTitle }}"?</p>
                                             <input class="btn btn-danger" type="submit" value="Delete Profile">
                                         </form>
