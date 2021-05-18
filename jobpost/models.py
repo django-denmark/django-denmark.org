@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ModelForm
+from django.core.validators import RegexValidator
 
 # Create your models here.
 
@@ -20,7 +21,14 @@ class Jobpost(models.Model):
     jobType = models.CharField(max_length=11, choices = JOBTYPE_CHOICES)
     jobLocation = models.CharField(max_length=100)
     jobContactPerson = models.CharField(max_length=80)
-    jobApplyHere = models.CharField(max_length=150)
+    jobApplyHere = models.URLField(max_length = 100, blank=True, 
+    validators=[
+        RegexValidator(
+            regex='[http]',
+            message='Job link must include https:// or http://',
+            code='invalid_url'
+        ),
+    ])
     
     def __str__(self):
         return '{} {} {} {} {} {} {} {}'.format(self.user, self.jobTitle, self.jobCompanyName, self.jobDescription, self.jobType, self.jobLocation, self.jobContactPerson,self.jobContactPerson, self.jobApplyHere)
