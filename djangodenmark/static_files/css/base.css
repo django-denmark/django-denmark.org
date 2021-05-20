@@ -1,0 +1,19 @@
+.signup-login {
+    padding: 70px;
+    margin: auto;
+    max-width: 600px !important;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgba(211, 211, 211, 0.7);
+}
+.height-container {
+    min-height: calc(100vh - 157px);
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+.create-form {
+    margin: 100px auto;
+    line-height: 35px;
+    width: 700px;
+}

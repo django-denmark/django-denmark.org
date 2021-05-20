@@ -1,9 +1,10 @@
-{% extends "company/base.html" %}
+{% extends "jobpost/base.html" %}
 {% block content %}
+{% load widget_tweaks %}
 
 <form method="post" novalidate enctype="multipart/form-data" class="create-form">
-  <h1>Create your company profile</h1>
+  <h1>Update job post</h1>
   {% include 'base-form.html' with form=form %}
-  <button type="submit" class="btn btn-django">Create profile</button>
+  <button type="submit" class="btn btn-django">Update job post</button>
 </form>
 {% endblock %}
