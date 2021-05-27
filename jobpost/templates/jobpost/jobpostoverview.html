@@ -33,14 +33,14 @@
                                     </div>
                                     <br>
                                     <div class="modal-body row">
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <h6>Job Info</h6>
                                             <div>{{ Jobpost.jobCompanyName }}</div>
                                             <div>{{ Jobpost.jobContactPerson }}</div>
                                             <div>{{ Jobpost.jobLocation }}</div>
                                             <div>{{ Jobpost.jobType }}</div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-8">
                                             <h5>Description:</h5>
                                             <p>{{ Jobpost.jobDescription|linebreaks }}</p>
                                             <button class="btn btn-django" onclick="window.location.href='{{ Jobpost.jobApplyHere }}'">Apply here</button>
