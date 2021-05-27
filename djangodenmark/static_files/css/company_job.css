@@ -18,6 +18,12 @@
     width: 150px;
     padding: 10px;
     object-fit: contain;
+} 
+.card-title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 .company-description {
     overflow: hidden;
