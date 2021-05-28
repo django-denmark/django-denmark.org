@@ -46,7 +46,7 @@
             <li class="nav-item"> 
               <a class="nav-link"> Hi {{ user.username }}!</a>
             </li>
-              <a class="nav-link" href="{% url 'logout' %}"><img class="login-logo" src="{% static 'img/user.png' %}"> Log Out</a>
+              <a class="nav-link" href="{% url 'logout' %}"><img class="login-logo" src="{% static 'img/login.png' %}"> Log Out</a>
             {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}?next={{request.path}}"><img class="login-logo" src="{% static 'img/login.png' %}"> Login</a>
