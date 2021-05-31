@@ -5,7 +5,7 @@ from django.contrib.auth.views import redirect_to_login
 from django.contrib.auth.models import User
 from jobpost.models import Jobpost
 
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -20,9 +20,6 @@ class CompanyFormView(LoginRequiredMixin, CreateView):
         obj.user = self.request.user
         obj.save()
         return super().form_valid(form)
-
-    # def get_success_url(self, **kwargs):
-    #     return "/company/" + str(self.object.pk) + "/detailViewCompanyProfile.html"
 
 class CompanyView(ListView):
     model = Company

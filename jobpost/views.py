@@ -3,7 +3,7 @@ from .models import Jobpost, JobpostForm
 from django.views.generic import FormView, ListView, UpdateView, CreateView, DeleteView, DetailView
 from django.contrib.auth.views import redirect_to_login
 from django.contrib.auth.models import User
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q 
 
 
