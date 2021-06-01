@@ -7,6 +7,7 @@
     </div>
 {% endblock %}
 {% block content %}
+{% comment %} What is Django Denmark {% endcomment %}
     <div class="row about-django">
         <div class="col-6">
             <h2>What is Django Denmark?</h2>
@@ -16,6 +17,7 @@
             <img class="about-django-img" src="{% static 'img/hero.png' %}">
         </div>
     </div>
+{% comment %} Events block {% endcomment %}
     <h1>Events</h1>
     <div class="event-container">
     {% for Event in event_list %}
@@ -31,6 +33,7 @@
         </div>
     {% endfor %}
     </div>
+{% comment %} Lastest added companies shown as Boptstrap cards {% endcomment %}
     <h1>Lastest added companies...</h1>
     <div class="card-container landingpage">
     {% for Company in company_list %}
@@ -40,7 +43,7 @@
                     <h5 class="card-title">{{ Company.companyName }}</h5>
                     <p class="card-text company-description">{{ Company.description }}</p>
                     <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Company.pk }}">See company profile</button>
-                    <!-- Modal -->
+                    <!-- show company modal starts -->
                     <div class="modal fade" id="exampleModal{{ Company.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -66,6 +69,7 @@
                             </div>
                         </div>
                         </div>
+                        {% comment %} modal ends {% endcomment %}
                     </div>
                     </div>
                 </div>

@@ -6,6 +6,7 @@
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         <br>
         <div class="row">
+            {% comment %} search bar to filter jobs {% endcomment %}
             <div class="col-5">
                 <form action="{% url 'jobpostoverview' %}" method="get">
                     <input class="search-input" name="q" type="text" placeholder="Search...">
@@ -17,13 +18,14 @@
             <div class="col-7 job-list">
                 <div class="card-container">
                     {% for Jobpost in jobpost_list %}
+                    {% comment %} Each job is shown in the form of a bootstrap card {% endcomment %}
                     <div class="card jobpost-card">
                         <div class="card-body">
                             <h5 class="card-title">{{ Jobpost.jobTitle }}</h5>
                             <h6 class="card-text info-line">{{ Jobpost.jobCompanyName }} &bull; {{ Jobpost.jobLocation }} &bull; {{ Jobpost.jobType }}</h6>
                             <p class="card-text company-description">{{ Jobpost.jobDescription }}</p>
                             <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">See job</button>
-                            <!-- Modal -->
+                            <!-- show job modal starts -->
                             <div class="modal fade" id="exampleModal{{ Jobpost.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -49,6 +51,7 @@
                                 </div>
                             </div>
                             </div>
+                            {% comment %} show job modal ends {% endcomment %}
                         </div>
                     </div>
                     {% endfor %}

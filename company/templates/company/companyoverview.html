@@ -5,13 +5,14 @@
         <p>Welcome to the overview for all the companies, that uses Django.</p>
         <div class="card-container">
         {% for Company in company_list %}
+        {% comment %} Each company is shown in the form of a bootstrap card {% endcomment %}
         <div class="card company-card">
                 <img class="company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ Company.companyName }}</h5>
                     <p class="card-text company-description">{{ Company.description }}</p>
                     <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Company.pk }}">See company profile</button>
-                    <!-- Modal -->
+                    <!-- Modal starts -->
                     <div class="modal fade" id="exampleModal{{ Company.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -31,7 +32,6 @@
                             </div>
                             <div class="col-8">
                                 <h5>Description:</h5>
-                                
                                 <p>{{ Company.description|linebreaks }}</p>
                                 <h5>Relation to Django:</h5>
                                 <p>{{ Company.relationToDjango|linebreaks }}</p>
@@ -40,6 +40,7 @@
                         </div>
                     </div>
                     </div>
+                    <!-- Modal ends -->
                 </div>
         </div>
         {% endfor %}

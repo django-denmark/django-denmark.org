@@ -1,7 +1,7 @@
 {% extends "company/companyoverview.html" %}
 
 {% block content %}
-{% comment %} COMPANIES {% endcomment %}
+{% comment %} COMPANIES on my page {% endcomment %}
     <div class="company-overview">
         <div class="row">
             <h1 class="col-9">Your company profiles</h1>
@@ -12,6 +12,7 @@
         <br>
         <div class="card-container">
         {% for Company in company_list %}
+        {% comment %} Each company is shown in the form of a bootstrap card {% endcomment %}
         <div class="card company-card">
                 <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
                 <div class="card-body">
@@ -21,7 +22,7 @@
                     <div class="btn-grouped">
                         <button class="btn btn-django" onclick="window.location.href='/company/{{ Company.pk }}/updateCompanyProfile'">Update</button>
                         <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#myPageModal{{ Company.pk }}">Delete</button>
-                        {% comment %} delete company modal {% endcomment %}
+                        {% comment %} delete company modal starts {% endcomment %}
                         <div class="modal" id="myPageModal{{ Company.pk }}" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -37,8 +38,9 @@
                             </div>
                         </div>
                         </div>
+                        {% comment %} delete company modal ends {% endcomment %}
                     </div>
-                    <!-- Modal -->
+                    <!-- see company modal starts -->
                     <div class="modal fade" id="seeCompanyModal{{ Company.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -67,6 +69,7 @@
                         </div>
                     </div>
                     </div>
+                    {% comment %} see company modal ends {% endcomment %}
                 </div>
         </div>
         {% endfor %}
@@ -83,6 +86,7 @@
         <br>
         <div class="card-container">
             {% for Jobpost in jobpost_list %}
+            {% comment %} Each job is shown in the form of a bootstrap card {% endcomment %}
             <div class="card company-card">
                     <div class="card-body">
                         <h5 class="card-title">{{ Jobpost.jobTitle }}</h5>
@@ -107,8 +111,9 @@
                                 </div>
                             </div>
                             </div>
+                            {% comment %} delete job modal ends {% endcomment %}
                         </div>
-                        <!-- SEE JOB Modal -->
+                        <!-- SEE JOB Modal starts -->
                         <div class="modal fade" id="exampleModal{{ Jobpost.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -134,6 +139,7 @@
                             </div>
                         </div>
                         </div>
+                        {% comment %} see job modal ends {% endcomment %}
                     </div>
             </div>
             {% endfor %}

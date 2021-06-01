@@ -13,13 +13,14 @@
       {% endfor %}
     </div>
   {% endif %}
-
+{% comment %} all visible fields in form {% endcomment %}
   {% for field in form.visible_fields %}
     <div class="form-group">
       {{ field.label_tag }}
 
       {% if form.is_bound %}
         {% if field.errors %}
+        {% comment %} fields with errors chown in red with error message {% endcomment %}
           {% render_field field class="form-control is-invalid" %}
           {% for error in field.errors %}
             <div class="invalid-feedback">
@@ -27,9 +28,11 @@
             </div>
           {% endfor %}
         {% else %}
+        {% comment %} fields with out erros stay green {% endcomment %}
           {% render_field field class="form-control is-valid" %}
         {% endif %}
       {% else %}
+      {% comment %} base styling for fields in form {% endcomment %}
         {% render_field field class="form-control" %}
       {% endif %}
     </div>
