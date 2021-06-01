@@ -5,6 +5,10 @@ from django.core.validators import RegexValidator
 
 # Create your models here.
 
+# All fields, Jobpost should contain with string conversion and special validators
+# and additional label, exclusion of specific fields formatting
+
+# Available titles for searching jobs
 JOBTYPE_CHOICES = (
     ("PartTime", "Part-time"),
     ("FullTime", "Full-time"),

@@ -26,6 +26,7 @@ class JobpostView(ListView):
     model = Jobpost
     template_name = "jobpost/jobpostoverview.html"
 
+    # Makes it possible to search for a specific jobpost by filtering through all jobpost objects
     def get_queryset(self):
         query = self.request.GET.get('q')
         if query == None:
@@ -42,15 +43,12 @@ class JobpostDetailView(DetailView):
     fields = '__all__'
 
 # UpdateView
-class UpdateJobpostFormView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class UpdateJobpostFormView(LoginRequiredMixin, UpdateView):
     model = Jobpost
     template_name = "jobpost/updateJobpost.html"
     form_class = JobpostForm
     success_url = '/company/detailViewEditUpdateProfile'
     
-    def test_func(self):
-        obj = self.get_object()
-        return obj.user == self.request.user
 
 # DeleteView
 class DeleteJobpostFormView(DeleteView):

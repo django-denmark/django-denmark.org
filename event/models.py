@@ -1,6 +1,9 @@
 from django.db import models
 
 # Create your models here.
+
+# All fields, Event should contain with string conversion
+
 class Event(models.Model):
     eventTitle = models.CharField(max_length=100)
     date = models.DateField()

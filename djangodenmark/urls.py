@@ -16,10 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import TemplateView
-
 from django.conf import settings
 from django.conf.urls.static import static
-
 from event import urls as event_urls
 from company import urls as company_urls
 from jobpost import urls as jobpost_urls
@@ -30,8 +28,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('company/', include(company_urls)),
-    path('jobpost/', include(jobpost_urls))
-    
+    path('jobpost/', include(jobpost_urls))    
 ]
 
 if settings.DEBUG:
