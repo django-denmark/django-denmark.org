@@ -47,7 +47,7 @@ class CompanyDetailViewEditUpdate(LoginRequiredMixin, ListView):
     # sets of data to be displayed on the same html page. In this case objects from jobpost.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        myJobposts = Jobpost.objects.all()
+        myJobposts = Jobpost.objects.filter(user=self.request.user)
         context['jobpost_list'] = myJobposts
         return context
 
