@@ -3,10 +3,6 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.forms import ModelForm
 
-# Create your models here.
-
-# All fields, Jobpost should contain with string conversion and special validators
-# and additional label, exclusion of specific fields formatting
 
 # Available titles for searching jobs
 JOBTYPE_CHOICES = (
@@ -46,7 +42,6 @@ class Jobpost(models.Model):
             self.jobDescription,
             self.jobType,
             self.jobLocation,
-            self.jobContactPerson,
             self.jobContactPerson,
             self.jobApplyHere,
         )
