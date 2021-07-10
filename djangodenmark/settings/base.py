@@ -1,6 +1,8 @@
 import os
 import pathlib
 
+from django.urls.base import reverse_lazy
+
 # Build paths inside the project like this: str(BASE_DIR / "static")
 BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 
@@ -112,8 +114,8 @@ STATIC_URL = "/static/"
 
 DJANGO_DENMARK_INVITE_CODES = []
 
-LOGIN_REDIRECT_URL = "event:index"
+LOGIN_REDIRECT_URL = reverse_lazy("events:index")
 
-LOGOUT_REDIRECT_URL = "event:index"
+LOGOUT_REDIRECT_URL = reverse_lazy("events:index")
 
 SIGNUP_REDIRECT_URL = "/"
