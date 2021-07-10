@@ -1,0 +1,33 @@
+{% extends "event/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="row about-django">
+        <div class="col-6">
+            <h2>About Us</h2>
+            <p>
+                Django Danmark<br>
+                C/O Arbejdsfællesskabet<br>
+                Blågårdsgade 19 kl.<br>
+                2200 København N
+            </p>
+            <p>
+                CVR/VAT ID: 39311062
+            </p>
+
+            <h2>Association (Forening)</h2>
+            <p>The board of the association is:</p>
+            <ul>
+                <li>Emil B. Kjer (chair)</li>
+                <li>Benjamin B. Bach (treasurer)</li>
+                <li>Víðir Valberg Guðmundsson</li>
+            </ul>
+
+        </div>
+        <div class="col-6">
+            <img class="about-django-img" src="{% static 'img/hero.png' %}">
+        </div>
+    </div>
+
+{% endblock %}
