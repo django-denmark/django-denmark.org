@@ -1,8 +1,12 @@
 from django.urls import path
 
-from . import views
-from .views import LandingpageView
+from .views import AboutView
+from .views import IndexView
+
+
+app_name = "events"
 
 urlpatterns = [
-    path("", LandingpageView.as_view(), name="landingpage"),
+    path("", IndexView.as_view(), name="index"),
+    path("about/", AboutView.as_view(), name="about"),
 ]

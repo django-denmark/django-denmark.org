@@ -1,5 +1,4 @@
 from django.urls import path
-from django.views.generic.base import TemplateView
 
 from .views import CompanyDetailView
 from .views import CompanyDetailViewEditUpdate
@@ -9,7 +8,7 @@ from .views import DeleteCompanyFormView
 from .views import UpdateCompanyFormView
 
 urlpatterns = [
-    path("companyoverview/", CompanyView.as_view(), name="companyoverview"),
+    path("", CompanyView.as_view(), name="companyoverview"),
     path(
         "createCompanyProfile/", CompanyFormView.as_view(), name="createCompanyProfile"
     ),
