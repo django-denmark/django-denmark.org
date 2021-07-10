@@ -1,0 +1,49 @@
+{% extends "company/base.html" %}
+{% block content %}
+    <div class="company-overview">
+        <h1>Companies that use Django</h1>
+        <p>Welcome to the overview for all the companies, that uses Django.</p>
+        <div class="card-container">
+        {% for Company in company_list %}
+        {% comment %} Each company is shown in the form of a bootstrap card {% endcomment %}
+        <div class="card company-card">
+                <img class="company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ Company.companyName }}</h5>
+                    <p class="card-text company-description">{{ Company.description }}</p>
+                    <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Company.pk }}">See company profile</button>
+                    <!-- Modal starts -->
+                    <div class="modal fade" id="exampleModal{{ Company.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
+                            <h4 class="modal-title" id="exampleModalLabel">{{ Company.companyName }}</h4 >
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <br>
+                        <div class="modal-body row">
+                            <div class="col-4">
+                                <h6>Company Info</h6>
+                                <div>{{ Company.phoneNumber }}</div>
+                                <div>{{ Company.email }}</div>
+                                <div class="company-url" onclick="window.location.href='{{ Company.websiteURL }}'">{{ Company.websiteURL }}</div>
+                                <div>{{ Company.streetName }} {{ Company.houseNumber }}, {{ Company.postalCode }} {{ Company.region }}</div>
+                            </div>
+                            <div class="col-8">
+                                <h5>Description:</h5>
+                                <p>{{ Company.description|linebreaks }}</p>
+                                <h5>Relation to Django:</h5>
+                                <p>{{ Company.relationToDjango|linebreaks }}</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Modal ends -->
+                </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

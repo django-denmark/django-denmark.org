@@ -1,0 +1,62 @@
+{% extends "jobpost/base.html" %}
+
+{% block content %}
+    <div class="company-overview">
+        <h1>Job posts</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <br>
+        <div class="row">
+            {% comment %} search bar to filter jobs {% endcomment %}
+            <div class="col-5">
+                <form action="{% url 'jobpostoverview' %}" method="get">
+                    <input class="search-input" name="q" type="text" placeholder="Search...">
+                    <button type="submit" class="btn btn-django">Search jobs</button>
+                    &emsp;<a href="/jobpost/jobpostoverview">Clear search</a>
+                </form>
+                <p class="search-text">Search for job title, company name, job location or job type.</p>
+            </div>
+            <div class="col-7 job-list">
+                <div class="card-container">
+                    {% for Jobpost in jobpost_list %}
+                    {% comment %} Each job is shown in the form of a bootstrap card {% endcomment %}
+                    <div class="card jobpost-card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ Jobpost.jobTitle }}</h5>
+                            <h6 class="card-text info-line">{{ Jobpost.jobCompanyName }} &bull; {{ Jobpost.jobLocation }} &bull; {{ Jobpost.jobType }}</h6>
+                            <p class="card-text company-description">{{ Jobpost.jobDescription }}</p>
+                            <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">See job</button>
+                            <!-- show job modal starts -->
+                            <div class="modal fade" id="exampleModal{{ Jobpost.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLabel">{{ Jobpost.jobTitle }}</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <br>
+                                    <div class="modal-body row">
+                                        <div class="col-4">
+                                            <h6>Job Info</h6>
+                                            <div>{{ Jobpost.jobCompanyName }}</div>
+                                            <div>{{ Jobpost.jobContactPerson }}</div>
+                                            <div>{{ Jobpost.jobLocation }}</div>
+                                            <div>{{ Jobpost.jobType }}</div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h5>Description:</h5>
+                                            <p>{{ Jobpost.jobDescription|linebreaks }}</p>
+                                            <button class="btn btn-django" onclick="window.location.href='{{ Jobpost.jobApplyHere }}'">Apply here</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            {% comment %} show job modal ends {% endcomment %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>    
+    </div>
+{% endblock %}
