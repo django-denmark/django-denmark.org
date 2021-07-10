@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
                 (
                     "phoneNumber",
                     models.CharField(
-                        max_length=15, validators=[company.models.Company.only_int]
+                        max_length=15, validators=[company.models.only_int]
                     ),
                 ),
                 ("email", models.EmailField(max_length=100)),
