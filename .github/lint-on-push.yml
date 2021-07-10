@@ -1,0 +1,28 @@
+name: Lint on push
+
+on:
+  push:
+    branches:
+      - new
+
+jobs:
+  lint:
+    name: The lint job
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+            python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          pip install pre-commit
+
+      - name: Run pre-commit
+        run: |
+          pre-commit run --all-files
