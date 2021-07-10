@@ -31,7 +31,7 @@ class JobpostView(ListView):
     # Makes it possible to search for a specific jobpost by filtering through all jobpost objects
     def get_queryset(self):
         query = self.request.GET.get("q")
-        if query == None:
+        if query is None:
             jobpost_list = Jobpost.objects.all()
             return jobpost_list
         else:

@@ -46,9 +46,9 @@
     <div class="card-container landingpage">
     {% for Company in company_list %}
     <div class="card company-card">
-                <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
+                <img class="card-img-top company-logo" src="{{ Company.logo_image.url}}" alt="{{ Company.company_name }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ Company.companyName }}</h5>
+                    <h5 class="card-title">{{ Company.company_name }}</h5>
                     <p class="card-text company-description">{{ Company.description }}</p>
                     <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Company.pk }}">See company profile</button>
                     <!-- show company modal starts -->
@@ -56,24 +56,22 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
-                            <h4 class="modal-title" id="exampleModalLabel">{{ Company.companyName }}</h4 >
+                            <img class="card-img-top company-logo" src="{{ Company.logo_image.url}}" alt="{{ Company.company_name }}">
+                            <h4 class="modal-title" id="exampleModalLabel">{{ Company.company_name }}</h4 >
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <br>
                         <div class="modal-body row">
                             <div class="col-6">
                                 <h6>Company Info</h6>
-                                <div>{{ Company.phoneNumber }}</div>
                                 <div>{{ Company.email }}</div>
-                                <div class="company-url" onclick="window.location.href='{{ Company.websiteURL }}'">{{ Company.websiteURL }}</div>
-                                <div>{{ Company.streetName }} {{ Company.houseNumber }}, {{ Company.postalCode }} {{ Company.region }}</div>
+                                <div class="company-url" onclick="window.location.href='{{ Company.website_url }}'">{{ Company.website_url }}</div>
                             </div>
                             <div class="col-6">
                                 <h5>Description:</h5>
                                 <p>{{ Company.description }}</p>
                                 <h5>Relation to Django:</h5>
-                                <p>{{ Company.relationToDjango }}</p>
+                                <p>{{ Company.relation_to_django }}</p>
                             </div>
                         </div>
                         </div>

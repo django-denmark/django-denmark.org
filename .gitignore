@@ -1,6 +1,7 @@
 # Our stuff...
 
 djangodenmark/settings/local.py
+djangodenmark/media
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

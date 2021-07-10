@@ -1,21 +1,16 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
-from django.contrib.auth.views import redirect_to_login
-from django.shortcuts import get_object_or_404
-from django.shortcuts import redirect
-from django.shortcuts import render
 from django.views.generic import CreateView
 from django.views.generic import DeleteView
 from django.views.generic import DetailView
-from django.views.generic import FormView
 from django.views.generic import ListView
 from django.views.generic import UpdateView
 
+from .forms import CompanyForm
 from .models import Company
-from .models import CompanyForm
 from jobpost.models import Jobpost
 
 # Create your views here.
+
 
 # CreateView
 class CompanyFormView(LoginRequiredMixin, CreateView):
@@ -63,8 +58,8 @@ class CompanyDetailViewEditUpdate(LoginRequiredMixin, ListView):
     # sets of data to be displayed on the same html page. In this case objects from jobpost.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        myJobposts = Jobpost.objects.filter(user=self.request.user)
-        context["jobpost_list"] = myJobposts
+        my_jobposts = Jobpost.objects.filter(user=self.request.user)
+        context["jobpost_list"] = my_jobposts
         return context
 
 
