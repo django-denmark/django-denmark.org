@@ -4,11 +4,11 @@
 <div class="row">
   <div class="two-half column" style="margin-top: 15%">
     <h4>Django Denmark map</h4>
-     
+
     <p>
       This is our own map! Only invited members will see it. Currently, the map is a bit off... which is really unfortunate, but as you might recall from last Friday, we are very dizzy from banging our heads against the keyboard about this whole GIS coordinate projection nightmare.
     </p>
-     
+
     <p>
       Entries on map: <strong>{{ map.count }}</strong>
     </p>
@@ -16,9 +16,9 @@
     <p>
       <a href="{% url 'map:create' %}">Add yourself / company etc</a>
     </p>
-     
+
     <div id="mapid" style="height: 600px; margin-bottom: 20px;"></div>
-     
+
     <script>
      var mymap = L.map('mapid').setView([56.242, 11.634], 7);
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -34,7 +34,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
       {% endfor %}
 
     </script>
-    
+
   </div>
 </div>
 {% endblock %}

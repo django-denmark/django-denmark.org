@@ -1,0 +1,69 @@
+.hero {
+    position: relative;
+    text-align: center;
+}
+.hero-img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 400px;
+}
+.about-django {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.about-django h2 {
+    margin-top: -8px;
+}
+.about-django-img {
+    width: 100%;
+    object-fit: contain;
+
+}
+.event-container {
+    background-color: #00C380;
+    color: white;
+    margin-bottom: 100px;
+    padding: 20px 0;
+    overflow-y: auto; /* Show scrollbars */
+    height: 500px;
+}
+.event-container img {
+    max-width: 50%;
+    max-height: 136px;
+    object-fit: contain;
+}
+.event-row {
+    padding-bottom: 30px;
+}
+.event-col {
+    margin: auto;
+}
+.btn-event {
+    background-color: white;
+    color: black !important;
+}
+.event-title {
+    font-weight: 900;
+}
+.event-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+.event-container::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+.event-container::-webkit-scrollbar-thumb:vertical {
+    border-radius: 8px;
+    border: 2px solid #00C380; /* should match background, can't be transparent */
+    background-color: rgba(65, 65, 65, 0.5);
+}
+.event-container::-webkit-scrollbar:horizontal {
+    display: none;
+}

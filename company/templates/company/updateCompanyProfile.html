@@ -1,0 +1,11 @@
+{% extends "company/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+
+<form method="post" novalidate enctype="multipart/form-data" class="create-form">
+  <h1>Update your company profile</h1>
+  {% comment %} base-form found in djangodenmark/templates {% endcomment %}
+  {% include 'base-form.html' with form=form %}
+  <button type="submit" class="btn btn-django">Update profile</button>
+</form>
+{% endblock %}

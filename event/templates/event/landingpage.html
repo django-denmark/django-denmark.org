@@ -1,0 +1,82 @@
+{% extends "event/base.html" %}
+{% load static %}
+{% block heroContent %}
+    <div class="hero">
+        <img class="hero-img" src="{% static 'img/hero.png' %}">
+        <img class="logo" src="{% static 'img/logo.png' %}">
+    </div>
+{% endblock %}
+{% block content %}
+{% comment %} What is Django Denmark {% endcomment %}
+    <div class="row about-django">
+        <div class="col-6">
+            <h2>What is Django Denmark?</h2>
+            <p>Django Girls is a non-profit organization and a community that empowers and helps women to organize free, one-day programming workshops by providing tools, resources and support. We are a volunteer run organization with hundreds of people contributing to bring more amazing women into the world of technology. </p>
+            <p>We are making technology more approachable by creating resources designed with empathy. During each of our events, 30-60 women build their first web application using HTML, CSS, Python and Django.</p>
+        </div>
+        <div class="col-6">
+            <img class="about-django-img" src="{% static 'img/hero.png' %}">
+        </div>
+    </div>
+{% comment %} Events block {% endcomment %}
+    <h1>Events</h1>
+    <div class="event-container">
+    {% for Event in event_list %}
+        <div class="row event-row">
+            <div class="col-4 event-col"><img src="{{ Event.eventImage.url}}" alt="{{ Event.eventTitle }}"></div>
+            <div class="col-4 event-col">
+                <h3 class="event-title">{{ Event.eventTitle }}</h3>
+                <div>Date: {{ Event.date }}</div>
+                <div>Location: {{ Event.location }}</div>
+                <div>Description: {{ Event.description }}</div>
+            </div>
+            <div class="col-2 event-col"><a href="{{ Event.eventUrl }}" class="btn btn-event">Buy tickets</a></div>
+        </div>
+    {% endfor %}
+    </div>
+{% comment %} Lastest added companies shown as Boptstrap cards {% endcomment %}
+    <h1>Lastest added companies...</h1>
+    <div class="card-container landingpage">
+    {% for Company in company_list %}
+    <div class="card company-card">
+                <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ Company.companyName }}</h5>
+                    <p class="card-text company-description">{{ Company.description }}</p>
+                    <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Company.pk }}">See company profile</button>
+                    <!-- show company modal starts -->
+                    <div class="modal fade" id="exampleModal{{ Company.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <img class="card-img-top company-logo" src="{{ Company.logoImage.url}}" alt="{{ Company.companyName }}">
+                            <h4 class="modal-title" id="exampleModalLabel">{{ Company.companyName }}</h4 >
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <br>
+                        <div class="modal-body row">
+                            <div class="col-6">
+                                <h6>Company Info</h6>
+                                <div>{{ Company.phoneNumber }}</div>
+                                <div>{{ Company.email }}</div>
+                                <div class="company-url" onclick="window.location.href='{{ Company.websiteURL }}'">{{ Company.websiteURL }}</div>
+                                <div>{{ Company.streetName }} {{ Company.houseNumber }}, {{ Company.postalCode }} {{ Company.region }}</div>
+                            </div>
+                            <div class="col-6">
+                                <h5>Description:</h5>
+                                <p>{{ Company.description }}</p>
+                                <h5>Relation to Django:</h5>
+                                <p>{{ Company.relationToDjango }}</p>
+                            </div>
+                        </div>
+                        </div>
+                        {% comment %} modal ends {% endcomment %}
+                    </div>
+                    </div>
+                </div>
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endblock %}

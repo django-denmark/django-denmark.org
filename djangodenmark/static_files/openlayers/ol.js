@@ -1005,4 +1005,3 @@ wn.prototype.once=wn.prototype.N;wn.prototype.un=wn.prototype.K;wn.prototype.unB
 Bn.prototype.getRevision=Bn.prototype.M;Bn.prototype.on=Bn.prototype.J;Bn.prototype.once=Bn.prototype.N;Bn.prototype.un=Bn.prototype.K;Bn.prototype.unByKey=Bn.prototype.O;
   return OPENLAYERS.ol;
 }));
-
