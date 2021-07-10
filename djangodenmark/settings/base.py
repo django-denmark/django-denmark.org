@@ -18,7 +18,7 @@ INSTALLED_APPS = [
     "membership",
     "django_consent",
     "event",
-    "accounts",
+    "account",
     "company",
     "widget_tweaks",
     "jobpost",

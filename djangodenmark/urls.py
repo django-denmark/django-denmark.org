@@ -18,7 +18,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
-from django.views.generic.base import TemplateView
 
 from company import urls as company_urls
 from event import urls as event_urls
@@ -27,8 +26,8 @@ from jobpost import urls as jobpost_urls
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(event_urls)),
-    path("accounts/", include("accounts.urls")),
-    path("accounts/", include("django.contrib.auth.urls")),
+    path("account/", include("account.urls")),
+    path("account/", include("django.contrib.auth.urls")),
     path("company/", include(company_urls)),
     path("jobpost/", include(jobpost_urls)),
 ]
