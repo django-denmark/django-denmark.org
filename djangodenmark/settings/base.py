@@ -112,8 +112,8 @@ STATIC_URL = "/static/"
 
 DJANGO_DENMARK_INVITE_CODES = []
 
-LOGIN_REDIRECT_URL = "landingpage"
+LOGIN_REDIRECT_URL = "event:index"
 
-LOGOUT_REDIRECT_URL = "landingpage"
+LOGOUT_REDIRECT_URL = "event:index"
 
 SIGNUP_REDIRECT_URL = "/"
