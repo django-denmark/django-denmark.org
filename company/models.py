@@ -1,22 +1,18 @@
-from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.forms import ModelForm
 
-# Create your models here.
-
 # All fields, Company should contain with string conversion, and special validators
 # and additional label, exclusion of specific fields formatting
 
+# function for valid phonenumber only contains numbers
+def only_int(value):
+    if value.isdigit() == False:
+        raise ValidationError("Phone number must only contain numbers.")
 
 class Company(models.Model):
-
-    # function for valid phonenumber only contains numbers
-    def only_int(value):
-        if value.isdigit() == False:
-            raise ValidationError("Phone number must only contain numbers.")
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     logoImage = models.ImageField(upload_to="images/", null=True)

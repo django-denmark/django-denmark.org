@@ -1,14 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
-from django.contrib.auth.views import redirect_to_login
 from django.db.models import Q
-from django.shortcuts import get_object_or_404
-from django.shortcuts import redirect
-from django.shortcuts import render
 from django.views.generic import CreateView
 from django.views.generic import DeleteView
 from django.views.generic import DetailView
-from django.views.generic import FormView
 from django.views.generic import ListView
 from django.views.generic import UpdateView
 
