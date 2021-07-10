@@ -6,7 +6,7 @@ Local development bootstrapping:
 .. code-block:: bash
 
   # Create a Python3 virtual environment with your favorite tool
-  python3 -m venv venv
+  python3 -m venv .venv
   # Install the Python requirements for development
   pip install -r requirements_dev.txt
   # Create a database
