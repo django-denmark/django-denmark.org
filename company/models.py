@@ -4,13 +4,12 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.forms import ModelForm
 
-# All fields, Company should contain with string conversion, and special validators
-# and additional label, exclusion of specific fields formatting
 
-# function for valid phonenumber only contains numbers
 def only_int(value):
-    if value.isdigit() == False:
+    """function for valid phonenumber only contains numbers"""
+    if not value.isdigit():
         raise ValidationError("Phone number must only contain numbers.")
+
 
 class Company(models.Model):
 
