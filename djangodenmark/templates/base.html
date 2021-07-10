@@ -44,7 +44,7 @@
             <a class="nav-link" href="/jobpost/jobpostoverview">Job Posts</a>
             </li>
             {% if user.is_authenticated %}
-            <li class="nav-item"> 
+            <li class="nav-item">
               <a class="nav-link"> Hi {{ user.username }}!</a>
             </li>
               <a class="nav-link" href="{% url 'logout' %}"><img class="login-logo" src="{% static 'img/login.png' %}"> Log Out</a>

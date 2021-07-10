@@ -9,14 +9,14 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-import pathlib
 import os
+import pathlib
 
 # Build paths inside the project like this: str(BASE_DIR / "static")
 BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Application definition
 INSTALLED_APPS = [
@@ -50,7 +50,7 @@ ROOT_URLCONF = "djangodenmark.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        "DIRS": [str(BASE_DIR.joinpath("templates"))],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -123,8 +123,8 @@ STATIC_URL = "/static/"
 
 DJANGO_DENMARK_INVITE_CODES = []
 
-LOGIN_REDIRECT_URL = 'landingpage'
+LOGIN_REDIRECT_URL = "landingpage"
 
-LOGOUT_REDIRECT_URL = 'landingpage'
+LOGOUT_REDIRECT_URL = "landingpage"
 
-SIGNUP_REDIRECT_URL = '/'
+SIGNUP_REDIRECT_URL = "/"

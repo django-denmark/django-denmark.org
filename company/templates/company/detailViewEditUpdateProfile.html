@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-8">
                                 <h5>Description:</h5>
-                                
+
                                 <p>{{ Company.description|linebreaks }}</p>
                                 <h5>Relation to Django:</h5>
                                 <p>{{ Company.relationToDjango|linebreaks }}</p>
@@ -74,15 +74,15 @@
         </div>
         {% endfor %}
     </div>
-    
+
     {% comment %} JOB POSTS {% endcomment %}
-    <div class="company-overview">  
-        <div class="row">  
+    <div class="company-overview">
+        <div class="row">
             <h1 class="col-9">Your job posts</h1>
             {% if user.is_authenticated %}
                 <button onclick="window.location.href='/jobpost/createjobpost/'" class="btn btn-django col-3">Create job post</button>
             {% endif %}
-        </div>    
+        </div>
         <br>
         <div class="card-container">
             {% for Jobpost in jobpost_list %}

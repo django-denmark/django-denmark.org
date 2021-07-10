@@ -7,8 +7,8 @@ DEBUG = True
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0g^9kov4soj^q^7_o^+orwl&%w9w%kvw@k*yczi1^+c%my5)2u'
+SECRET_KEY = "0g^9kov4soj^q^7_o^+orwl&%w9w%kvw@k*yczi1^+c%my5)2u"
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 DJANGO_DENMARK_INVITE_CODES = ["test"]

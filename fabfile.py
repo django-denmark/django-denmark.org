@@ -3,19 +3,23 @@ ATTENTION!!! This file has not been tested at all!
 """
 import os
 from contextlib import contextmanager as _contextmanager
-from fabric.api import run, env
-from fabric import api
-from fabric.context_managers import cd, prefix
 
-api.env.hosts = ['djangodenmark@django-denmark']
+from fabric import api
+from fabric.api import env
+from fabric.api import run
+from fabric.context_managers import cd
+from fabric.context_managers import prefix
+
+api.env.hosts = ["djangodenmark@django-denmark"]
 
 # NB! No trailing slashes
-ENV_DIR = '/var/vhosts/djangodenmark/.virtualenvs/venv'
-PROJECT_DIR = '/var/vhosts/djangodenmark/git'
+ENV_DIR = "/var/vhosts/djangodenmark/.virtualenvs/venv"
+PROJECT_DIR = "/var/vhosts/djangodenmark/git"
 
 
 def dirjoin(x):
     return os.path.join(PROJECT_DIR, x)
+
 
 # Use the local .ssh/config
 env.use_ssh_config = True
@@ -23,12 +27,12 @@ env.use_ssh_config = True
 # Define a set of SSH hosts per roledef
 # afterwars, use fab --roles ROLEDEF task
 env.roledefs = {
-    'production': ['fair@fair'],
+    "production": ["fair@fair"],
     # 'local': ['letsgo-vagrant']
 }
 
 env.virtualenv = ENV_DIR
-env.activate = 'source %(virtualenv)s/bin/activate' % env
+env.activate = "source %(virtualenv)s/bin/activate" % env
 env.code_dir = PROJECT_DIR
 
 
@@ -41,7 +45,7 @@ def virtualenv():
 def git_pull():
 
     with cd(PROJECT_DIR):
-        run('git pull --ff origin master')
+        run("git pull --ff origin master")
 
 
 def clean_pyc():
@@ -52,26 +56,26 @@ def clean_pyc():
 
 def syncdb():
     with virtualenv():
-        run('python manage.py syncdb')
+        run("python manage.py syncdb")
 
 
 def migrate():
     with virtualenv():
-        run('python manage.py migrate')
+        run("python manage.py migrate")
 
 
 def collectstatic():
     with virtualenv():
-        run('python manage.py collectstatic --noinput')
+        run("python manage.py collectstatic --noinput")
 
 
 def install():
     with virtualenv():
-        run('pip install -r requirements.txt --upgrade')
+        run("pip install -r requirements.txt --upgrade")
 
 
 def reload():
-    api.run('touch /var/vhosts/djangodenmark/reload')
+    api.run("touch /var/vhosts/djangodenmark/reload")
 
 
 def deploy():

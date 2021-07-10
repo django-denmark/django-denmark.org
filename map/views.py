@@ -10,31 +10,31 @@ from . import models
 
 
 class MapView(ListView):
-    
+
     model = models.MapEntry
     template_name = "map/map.html"
     context_object_name = "map"
-    
+
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return ListView.dispatch(self, request, *args, **kwargs)
 
 
 class MapSavedView(TemplateView):
-    
+
     template_name = "map/saved.html"
-    
+
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return ListView.dispatch(self, request, *args, **kwargs)
 
 
 class MapCreateView(CreateView):
-    
+
     model = models.MapEntry
     form_class = forms.MapEntryForm
     template_name = "map/create.html"
-    
+
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return CreateView.dispatch(self, request, *args, **kwargs)
