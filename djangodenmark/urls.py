@@ -34,3 +34,11 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    # conditionally adding django-debug-toolbar URLs
+    # make sure to include in INSTALLED_APPS + MIDDLEWARE + INTERNAL_IPS are set
+    import debug_toolbar
+
+    urlpatterns += [
+        path("__debug__/", include(debug_toolbar.urls)),
+    ]
