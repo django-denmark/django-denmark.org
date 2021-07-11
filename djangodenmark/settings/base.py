@@ -114,6 +114,9 @@ STATIC_URL = "/static/"
 
 DJANGO_DENMARK_INVITE_CODES = []
 
+# use named URL pattern 'login' (Django default is path '/accounts/login/')
+LOGIN_URL = "login"
+
 LOGIN_REDIRECT_URL = reverse_lazy("events:index")
 
 LOGOUT_REDIRECT_URL = reverse_lazy("events:index")
