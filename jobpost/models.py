@@ -4,7 +4,7 @@ from django.urls import reverse
 
 
 # Available titles for searching jobs
-job_type_CHOICES = (
+JOBTYPE_CHOICES = (
     ("PartTime", "Part-time"),
     ("FullTime", "Full-time"),
     ("Freelancer", "Freelancer"),
@@ -19,7 +19,7 @@ class Jobpost(models.Model):
     job_company_name = models.CharField(max_length=100, verbose_name="Company name")
     job_description = models.TextField(verbose_name="Describe the position")
     job_type = models.CharField(
-        max_length=11, choices=job_type_CHOICES, verbose_name="Job type"
+        max_length=11, choices=JOBTYPE_CHOICES, verbose_name="Job type"
     )
     job_location = models.CharField(max_length=100, verbose_name="Location")
     job_contact_person = models.CharField(max_length=80, verbose_name="Contact person")
