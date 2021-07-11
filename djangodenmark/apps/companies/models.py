@@ -12,7 +12,7 @@ class Company(models.Model):
         verbose_name="Company logo",
     )
     company_name = models.CharField(max_length=145, verbose_name="Company name")
-    description = models.TextField(verbose_name="Describe your company")
+    description = models.TextField(verbose_name="Describe your companies")
     website_url = models.URLField(
         max_length=200,
         blank=True,
