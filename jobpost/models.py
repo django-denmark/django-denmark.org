@@ -1,11 +1,10 @@
 from django.contrib.auth.models import User
-from django.core.validators import RegexValidator
 from django.db import models
-from django.forms import ModelForm
+from django.urls import reverse
 
 
 # Available titles for searching jobs
-JOBTYPE_CHOICES = (
+job_type_CHOICES = (
     ("PartTime", "Part-time"),
     ("FullTime", "Full-time"),
     ("Freelancer", "Freelancer"),
@@ -15,52 +14,27 @@ JOBTYPE_CHOICES = (
 
 
 class Jobpost(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    jobTitle = models.CharField(max_length=60)
-    jobCompanyName = models.CharField(max_length=100)
-    jobDescription = models.TextField()
-    jobType = models.CharField(max_length=11, choices=JOBTYPE_CHOICES)
-    jobLocation = models.CharField(max_length=100)
-    jobContactPerson = models.CharField(max_length=80)
-    jobApplyHere = models.URLField(
-        max_length=100,
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    job_title = models.CharField(max_length=60, verbose_name="Job title")
+    job_company_name = models.CharField(max_length=100, verbose_name="Company name")
+    job_description = models.TextField(verbose_name="Describe the position")
+    job_type = models.CharField(
+        max_length=11, choices=job_type_CHOICES, verbose_name="Job type"
+    )
+    job_location = models.CharField(max_length=100, verbose_name="Location")
+    job_contact_person = models.CharField(max_length=80, verbose_name="Contact person")
+    job_apply_url = models.URLField(
+        max_length=200,
         blank=True,
-        validators=[
-            RegexValidator(
-                regex="[http]",
-                message="Job link must include https:// or http://",
-                code="invalid_url",
-            ),
-        ],
+        verbose_name="Link to job application",
     )
 
     def __str__(self):
-        return "{} {} {} {} {} {} {} {}".format(
-            self.user,
-            self.jobTitle,
-            self.jobCompanyName,
-            self.jobDescription,
-            self.jobType,
-            self.jobLocation,
-            self.jobContactPerson,
-            self.jobApplyHere,
-        )
+        return f"{self.job_title} at {self.job_company_name}"
 
-
-class JobpostForm(ModelForm):
-    def init(self, args, **kwargs):
-        super(JobpostForm, self).__init__(args, **kwargs)
-
-    class Meta:
-        model = Jobpost
-        exclude = ("user",)
-        fields = "__all__"
-        labels = {
-            "jobTitle": ("Job title"),
-            "jobCompanyName": ("Company name"),
-            "jobDescription": ("Describe the position"),
-            "jobType": ("Job type"),
-            "jobLocation": ("Location"),
-            "jobContactPerson": ("Contact person"),
-            "jobApplyHere": ("Insert link or mail here"),
-        }
+    def get_update_url(self):
+        """return URL for update view - for use in templates
+        since JS is being used on frontend, making this a model method is easier
+        than using url template tag to avoid showing unnecessary errors in code editors
+        """
+        return reverse("jobpost_update", args=[self.pk])

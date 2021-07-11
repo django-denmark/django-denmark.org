@@ -29,7 +29,7 @@ urlpatterns = [
     path("account/", include("account.urls")),
     path("account/", include("django.contrib.auth.urls")),
     path("company/", include(company_urls)),
-    path("jobpost/", include(jobpost_urls)),
+    path("jobs/", include(jobpost_urls)),
 ]
 
 if settings.DEBUG:
