@@ -3,6 +3,17 @@ from .base import *  # noqa
 
 DEBUG = True
 
+INSTALLED_APPS += ["debug_toolbar"]  # noqa
+
+# django-debug-toolbar middleware should be high on the list of middleware
+# (but after anything that encodes the response content such as GZipMiddleware)
+MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE  # noqa
+
+# needed for django-debug-toolbar
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 

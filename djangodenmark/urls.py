@@ -29,8 +29,16 @@ urlpatterns = [
     path("account/", include("account.urls")),
     path("account/", include("django.contrib.auth.urls")),
     path("company/", include(company_urls)),
-    path("jobpost/", include(jobpost_urls)),
+    path("jobs/", include(jobpost_urls)),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    # conditionally adding django-debug-toolbar URLs
+    # make sure to include in INSTALLED_APPS + MIDDLEWARE + INTERNAL_IPS are set
+    import debug_toolbar
+
+    urlpatterns += [
+        path("__debug__/", include(debug_toolbar.urls)),
+    ]

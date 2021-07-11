@@ -2,96 +2,109 @@
 
 {% block content %}
 {% comment %} COMPANIES on my page {% endcomment %}
-    <div class="company-overview">
-        <div class="row">
-            <h1 class="col-9">Your company profiles</h1>
-            {% if user.is_authenticated %}
-                <button onclick="window.location.href='/company/createCompanyProfile/'" class="btn btn-django col-3">Create company Profile</button>
-            {% endif %}
+    <div class="company-overview row">
+        <div class="col-12">
+            <div class="row">
+                <h1 class="col-9">Your company profiles</h1>
+                {% if user.is_authenticated %}
+                    <!-- <button onclick="window.location.href='/company/createCompanyProfile/'" class="btn btn-django col-3">Create company Profile</button> -->
+                    <div class="col-3 d-flex justify-content-end align-items-center">
+                        <a href="{% url 'createCompanyProfile' %}" class="btn btn-django">Create Company Profile</a>
+                    </div>
+                {% endif %}
+            </div>
         </div>
         <br>
-        <div class="card-container">
-        {% for Company in company_list %}
-        {% comment %} Each company is shown in the form of a bootstrap card {% endcomment %}
-        <div class="card company-card">
-                <img class="card-img-top company-logo" src="{{ Company.logo_image.url}}" alt="{{ Company.company_name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ Company.company_name }}</h5>
-                    <p class="card-text company-description">{{ Company.description }}</p>
-                    <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#seeCompanyModal{{ Company.pk }}">See company profile</button>
-                    <div class="btn-grouped">
-                        <button class="btn btn-django" onclick="window.location.href='/company/{{ Company.pk }}/updateCompanyProfile'">Update</button>
-                        <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#myPageModal{{ Company.pk }}">Delete</button>
-                        {% comment %} delete company modal starts {% endcomment %}
-                        <div class="modal" id="myPageModal{{ Company.pk }}" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="{% url 'delete_company' pk=Company.pk %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
-                                        <p>Are you sure you want to delete "{{ Company.company_name }}"?</p>
-                                        <input class="btn btn-danger" type="submit" value="Delete Profile">
-                                    </form>
+        <div class="col-12">
+            <div class="card-container">
+                {% for Company in company_list %}
+                {% comment %} Each company is shown in the form of a bootstrap card {% endcomment %}
+                <div class="card company-card">
+                    <img class="card-img-top company-logo" src="{{ Company.logo_image.url}}" alt="{{ Company.company_name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ Company.company_name }}</h5>
+                        <p class="card-text company-description">{{ Company.description }}</p>
+                        <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#seeCompanyModal{{ Company.pk }}">See company profile</button>
+                        <div class="btn-grouped">
+                            <button class="btn btn-django" onclick="window.location.href='/company/{{ Company.pk }}/updateCompanyProfile'">Update</button>
+                            <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#myPageModal{{ Company.pk }}">Delete</button>
+                            {% comment %} delete company modal starts {% endcomment %}
+                            <div class="modal" id="myPageModal{{ Company.pk }}" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{% url 'delete_company' pk=Company.pk %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
+                                            <p>Are you sure you want to delete "{{ Company.company_name }}"?</p>
+                                            <input class="btn btn-danger" type="submit" value="Delete Profile">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        </div>
-                        {% comment %} delete company modal ends {% endcomment %}
-                    </div>
-                    <!-- see company modal starts -->
-                    <div class="modal fade" id="seeCompanyModal{{ Company.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <img class="card-img-top company-logo" src="{{ Company.logo_image.url}}" alt="{{ Company.company_name }}">
-                            <h4 class="modal-title" id="exampleModalLabel">{{ Company.company_name }}</h4 >
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <br>
-                        <div class="modal-body row">
-                            <div class="col-4">
-                                <h6>Company Info</h6>
-                                <div>{{ Company.email }}</div>
-                                <div class="company-url" onclick="window.location.href='{{ Company.website_url }}'">{{ Company.website_url }}</div>
                             </div>
-                            <div class="col-8">
-                                <h5>Description:</h5>
+                            {% comment %} delete company modal ends {% endcomment %}
+                        </div>
+                        <!-- see company modal starts -->
+                        <div class="modal fade" id="seeCompanyModal{{ Company.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <img class="card-img-top company-logo" src="{{ Company.logo_image.url}}" alt="{{ Company.company_name }}">
+                                        <h4 class="modal-title" id="exampleModalLabel">{{ Company.company_name }}</h4 >
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <br>
+                                    <div class="modal-body row">
+                                        <div class="col-4">
+                                            <h6>Company Info</h6>
+                                            <div>{{ Company.email }}</div>
+                                            <div class="company-url" onclick="window.location.href='{{ Company.website_url }}'">{{ Company.website_url }}</div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h5>Description:</h5>
 
-                                <p>{{ Company.description|linebreaks }}</p>
-                                <h5>Relation to Django:</h5>
-                                <p>{{ Company.relation_to_django|linebreaks }}</p>
+                                            <p>{{ Company.description|linebreaks }}</p>
+                                            <h5>Relation to Django:</h5>
+                                            <p>{{ Company.relation_to_django|linebreaks }}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        </div>
+                        {% comment %} see company modal ends {% endcomment %}
                     </div>
-                    </div>
-                    {% comment %} see company modal ends {% endcomment %}
                 </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
     </div>
 
     {% comment %} JOB POSTS {% endcomment %}
-    <div class="company-overview">
-        <div class="row">
-            <h1 class="col-9">Your job posts</h1>
-            {% if user.is_authenticated %}
-                <button onclick="window.location.href='/jobpost/createjobpost/'" class="btn btn-django col-3">Create job post</button>
-            {% endif %}
+    <div class="company-overview row">
+        <div class="col-12">
+            <div class="row">
+                <h1 class="col-9">Your job posts</h1>
+                {% if user.is_authenticated %}
+                    <div class="col-3 d-flex justify-content-end align-items-center">
+                        <a href="{% url 'jobpost_create' %}" class="btn btn-django">Create job post</a>
+                    </div>
+                {% endif %}
+            </div>
         </div>
         <br>
-        <div class="card-container">
-            {% for Jobpost in jobpost_list %}
-            {% comment %} Each job is shown in the form of a bootstrap card {% endcomment %}
-            <div class="card company-card">
+        <div class="col-12">
+            <div class="card-container">
+                {% for Jobpost in jobpost_list %}
+                {% comment %} Each job is shown in the form of a bootstrap card {% endcomment %}
+                <div class="card company-card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ Jobpost.jobTitle }}</h5>
-                        <p class="card-text company-description">{{ Jobpost.jobDescription }}</p>
+                        <h5 class="card-title">{{ Jobpost.job_title }}</h5>
+                        <p class="card-text company-description">{{ Jobpost.job_description }}</p>
                         <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#exampleModal{{ Jobpost.pk }}">See job post</button>
                         <div class="btn-grouped">
-                            <button class="btn btn-django" onclick="window.location.href='/jobpost/{{ Jobpost.pk }}/updateJobpost'">Update</button>
+                            <button class="btn btn-django" onclick="window.location.href='{{ Jobpost.get_update_url }}'">Update</button>
                             {% comment %} delete job modal {% endcomment %}
                             <button type="button" class="btn btn-django" data-bs-toggle="modal" data-bs-target="#deleteJobModal{{ Jobpost.pk }}">Delete</button>
                             <div class="modal" id="deleteJobModal{{ Jobpost.pk }}" tabindex="-1" role="dialog">
@@ -101,9 +114,9 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{% url 'delete_jobpost' pk=Jobpost.pk %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-                                            <p>Are you sure you want to delete "{{ Jobpost.jobTitle }}"?</p>
-                                            <input class="btn btn-danger" type="submit" value="Delete Profile">
+                                        <form action="{% url 'jobpost_delete' pk=Jobpost.pk %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+                                            <p>Are you sure you want to delete "{{ Jobpost.job_title }}"?</p>
+                                            <input class="btn btn-danger" type="submit" value="Delete Job Post">
                                         </form>
                                     </div>
                                 </div>
@@ -113,36 +126,35 @@
                         </div>
                         <!-- SEE JOB Modal starts -->
                         <div class="modal fade" id="exampleModal{{ Jobpost.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="exampleModalLabel">{{ Jobpost.jobTitle }}</h4>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <br>
-                            <div class="modal-body row">
-                                <div class="col-6">
-                                    <h6>Job Info</h6>
-                                    <div>{{ Jobpost.jobcompany_name }}</div>
-                                    <div>{{ Jobpost.jobContactPerson }}</div>
-                                    <div>{{ Jobpost.jobLocation }}</div>
-                                    <div>{{ Jobpost.jobType }}</div>
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLabel">{{ Jobpost.job_title }}</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="col-6">
-                                    <h5>Description:</h5>
-                                    <p>{{ Jobpost.jobDescription|linebreaks }}</p>
-                                    <button class="btn btn-django" onclick="window.location.href='{{ Jobpost.jobApplyHere }}'">Apply here</button>
+                                <br>
+                                <div class="modal-body row">
+                                    <div class="col-6">
+                                        <h6>Job Info</h6>
+                                        <div>{{ Jobpost.jobcompany_name }}</div>
+                                        <div>{{ Jobpost.job_contact_person }}</div>
+                                        <div>{{ Jobpost.job_location }}</div>
+                                        <div>{{ Jobpost.job_type }}</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5>Description:</h5>
+                                        <p>{{ Jobpost.job_description|linebreaks }}</p>
+                                        <a href="{{ Jobpost.job_apply_url }}" target="_blank" class="btn btn-django">Apply here</a>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
                         </div>
                         {% comment %} see job modal ends {% endcomment %}
                     </div>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
-        </div>
         </div>
     </div>
 {% endblock %}
