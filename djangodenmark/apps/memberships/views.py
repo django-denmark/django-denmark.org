@@ -17,7 +17,7 @@ class NewsletterSignupView(ConsentCreateView):
 
 class StartView(TemplateView):
 
-    template_name = "membership/start.html"
+    template_name = "memberships/start.html"
 
     # Balder is working on this
     def get_context_data_soon(self, **kwargs):
@@ -31,17 +31,17 @@ class StartView(TemplateView):
 class InviteView(FormView):
 
     form_class = forms.InviteForm
-    template_name = "membership/invite.html"
+    template_name = "memberships/invite.html"
 
     def form_valid(self, __):
         self.request.session["invited"] = True
-        return redirect("membership:signup")
+        return redirect("memberships:signup")
 
 
 class SignupView(CreateView):
 
     form_class = forms.SignupForm
-    template_name = "membership/signup.html"
+    template_name = "memberships/signup.html"
 
     def dispatch(self, request, *args, **kwargs):
         if not self.request.session["invited"]:
@@ -49,9 +49,9 @@ class SignupView(CreateView):
         return CreateView.dispatch(self, request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse("membership:login")
+        return reverse("memberships:login")
 
 
 class LoginView(AuthLoginView):
 
-    template_name = "membership/login.html"
+    template_name = "memberships/login.html"

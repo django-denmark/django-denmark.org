@@ -17,13 +17,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "membership",
+    "djangodenmark.apps.memberships",
     "django_consent",
-    "event",
-    "account",
-    "company",
+    "djangodenmark.apps.events",
+    "djangodenmark.apps.accounts",
+    "djangodenmark.apps.companies",
     "widget_tweaks",
-    "jobpost",
+    "djangodenmark.apps.jobposts",
 ]
 
 MIDDLEWARE = [

@@ -1,12 +1,12 @@
 from django.views.generic import ListView
 
 from .models import Event
-from company.models import Company
+from djangodenmark.apps.companies.models import Company
 
 
 class IndexView(ListView):
     model = Event
-    template_name = "event/index.html"
+    template_name = "events/index.html"
     ordering = ["-date"]
 
     # Gets all Event objects and returns a sorted list by creation stamp
@@ -21,7 +21,7 @@ class IndexView(ListView):
 
 class AboutView(ListView):
     model = Event
-    template_name = "event/about.html"
+    template_name = "events/about.html"
     ordering = ["-date"]
 
     # Gets all Event objects and returns a sorted list by creation stamp

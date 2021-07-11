@@ -12,9 +12,9 @@ from .models import Jobpost
 # Create your views here.
 class JobpostCreateView(LoginRequiredMixin, CreateView):
     model = Jobpost
-    template_name = "jobpost/jobpost_create.html"
+    template_name = "jobposts/jobpost_create.html"
     form_class = JobpostForm
-    success_url = "/company/detailViewEditUpdateProfile"
+    success_url = "/companies/detailViewEditUpdateProfile"
 
     def form_valid(self, form):
         obj = form.save(commit=False)
@@ -25,9 +25,9 @@ class JobpostCreateView(LoginRequiredMixin, CreateView):
 
 class JobpostSearchView(ListView):
     model = Jobpost
-    template_name = "jobpost/jobpost_search.html"
+    template_name = "jobposts/jobpost_search.html"
 
-    # Makes it possible to search for a specific jobpost by filtering through all jobpost objects
+    # Makes it possible to search for a specific jobposts by filtering through all jobposts objects
     def get_queryset(self):
         query = self.request.GET.get("q")
         if query is None:
@@ -52,13 +52,13 @@ class JobpostSearchView(ListView):
 # UpdateView
 class JobpostUpdateView(LoginRequiredMixin, UpdateView):
     model = Jobpost
-    template_name = "jobpost/jobpost_update.html"
+    template_name = "jobposts/jobpost_update.html"
     form_class = JobpostForm
-    success_url = "/company/detailViewEditUpdateProfile"
+    success_url = "/companies/detailViewEditUpdateProfile"
 
 
 # DeleteView
 class JobpostDeleteView(DeleteView):
     model = Jobpost
-    template_name = "/company/detailViewEditUpdateProfile.html"
-    success_url = "/company/detailViewEditUpdateProfile"
+    template_name = "/companies/detailViewEditUpdateProfile.html"
+    success_url = "/companies/detailViewEditUpdateProfile"

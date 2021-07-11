@@ -7,17 +7,15 @@ from django.views.generic import UpdateView
 
 from .forms import CompanyForm
 from .models import Company
-from jobpost.models import Jobpost
-
-# Create your views here.
+from djangodenmark.apps.jobposts.models import Jobpost
 
 
 # CreateView
 class CompanyFormView(LoginRequiredMixin, CreateView):
     model = Company
-    template_name = "company/createCompanyProfile.html"
+    template_name = "companies/createCompanyProfile.html"
     form_class = CompanyForm
-    success_url = "/company/detailViewEditUpdateProfile"
+    success_url = "/companies/detailViewEditUpdateProfile"
 
     # Checks if data input is valid and saves object
     def form_valid(self, form):
@@ -29,7 +27,7 @@ class CompanyFormView(LoginRequiredMixin, CreateView):
 
 class CompanyView(ListView):
     model = Company
-    template_name = "company/companyoverview.html"
+    template_name = "companies/companyoverview.html"
 
 
 # DetailView
@@ -37,13 +35,13 @@ class CompanyView(ListView):
 # functionalities for users when signed in or not and ListView.
 class CompanyDetailView(DetailView):
     model = Company
-    template_name = "company/detailViewCompanyProfile.html"
+    template_name = "companies/detailViewCompanyProfile.html"
     fields = "__all__"
 
 
 class CompanyDetailViewEditUpdate(LoginRequiredMixin, ListView):
     model = Company
-    template_name = "company/detailViewEditUpdateProfile.html"
+    template_name = "companies/detailViewEditUpdateProfile.html"
     fields = "__all__"
 
     # get_queryset(self) secures to display Company profiles that the User is creater/owner of.
@@ -55,7 +53,7 @@ class CompanyDetailViewEditUpdate(LoginRequiredMixin, ListView):
         )
 
     # get_context_data(self, **kwargs) makes it possible for two ListViews containing different
-    # sets of data to be displayed on the same html page. In this case objects from jobpost.
+    # sets of data to be displayed on the same html page. In this case objects from jobposts.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         my_jobposts = Jobpost.objects.filter(user=self.request.user)
@@ -66,13 +64,13 @@ class CompanyDetailViewEditUpdate(LoginRequiredMixin, ListView):
 # UpdateView
 class UpdateCompanyFormView(LoginRequiredMixin, UpdateView):
     model = Company
-    template_name = "company/updateCompanyProfile.html"
+    template_name = "companies/updateCompanyProfile.html"
     form_class = CompanyForm
-    success_url = "/company/detailViewEditUpdateProfile"
+    success_url = "/companies/detailViewEditUpdateProfile"
 
 
 # DeleteView
 class DeleteCompanyFormView(DeleteView):
     model = Company
-    template_name = "company/detailViewEditUpdateProfile.html"
-    success_url = "/company/detailViewEditUpdateProfile"
+    template_name = "companies/detailViewEditUpdateProfile.html"
+    success_url = "/companies/detailViewEditUpdateProfile"

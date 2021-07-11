@@ -19,16 +19,16 @@ from django.contrib import admin
 from django.urls import include
 from django.urls import path
 
-from company import urls as company_urls
-from event import urls as event_urls
-from jobpost import urls as jobpost_urls
+from .apps.companies import urls as company_urls
+from .apps.events import urls as event_urls
+from .apps.jobposts import urls as jobpost_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(event_urls)),
-    path("account/", include("account.urls")),
-    path("account/", include("django.contrib.auth.urls")),
-    path("company/", include(company_urls)),
+    path("accounts/", include("djangodenmark.apps.accounts.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("companies/", include(company_urls)),
     path("jobs/", include(jobpost_urls)),
 ]
 
