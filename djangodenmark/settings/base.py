@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "djangodenmark.apps.memberships",
+    "djangodenmark.apps.newsletter",
     "django_consent",
     "djangodenmark.apps.events",
     "djangodenmark.apps.accounts",

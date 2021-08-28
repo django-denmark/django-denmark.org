@@ -18,10 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
+from django_consent import urls as consent_urls
 
 from .apps.companies import urls as company_urls
 from .apps.events import urls as event_urls
 from .apps.jobposts import urls as jobpost_urls
+from .apps.newsletter import urls as newsletter_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -30,6 +32,8 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("companies/", include(company_urls)),
     path("jobs/", include(jobpost_urls)),
+    path("consent/", include(consent_urls)),
+    path("newsletter/", include(newsletter_urls)),
 ]
 
 if settings.DEBUG:
