@@ -23,7 +23,8 @@ class ConsentCreateView(ConsentCreateView):
 
     def get_success_url(self):
         return reverse(
-            "demo:signup_confirmation", kwargs={"source_id": self.consent_source.id}
+            "newsletter:signup_confirmation",
+            kwargs={"source_id": self.consent_source.id},
         )
 
 

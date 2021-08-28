@@ -18,13 +18,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "djangodenmark.apps.memberships",
+    "djangodenmark.apps.newsletter",
     "django_consent",
     "djangodenmark.apps.events",
     "djangodenmark.apps.accounts",
     "djangodenmark.apps.companies",
     "widget_tweaks",
     "djangodenmark.apps.jobposts",
-    "djangodenmark.apps.newsletter",
 ]
 
 MIDDLEWARE = [
