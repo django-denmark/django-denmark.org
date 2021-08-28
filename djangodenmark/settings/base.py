@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "djangodenmark.apps.companies",
     "widget_tweaks",
     "djangodenmark.apps.jobposts",
+    "djangodenmark.apps.newsletter",
 ]
 
 MIDDLEWARE = [
