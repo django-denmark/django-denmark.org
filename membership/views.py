@@ -15,6 +15,11 @@ class NewsletterSignupView(ConsentCreateView):
     pass
 
 
+class PrivacyPolicyView(TemplateView):
+
+    template_name = "membership/privacy_policy.html"
+
+
 class StartView(TemplateView):
 
     template_name = "membership/start.html"
